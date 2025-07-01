@@ -1,0 +1,152 @@
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 992px) and (max-width : 1250px) {
+    .topmenu a, .topmenu a:link, .topmenu a:visited {
+        font-size: 11pt;
+        padding: 7px 5px 0px 5px;
+    }
+}
+@media only screen and (min-width : 992px) and (max-width : 1024px) {
+    .main {
+        flex-wrap: wrap;
+    }
+
+    .leftblock, .rightblock {
+        float: left;
+        width: 236px;
+    }
+
+    .centerblock {
+        width: 600px;
+    }
+
+}
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+    .topmenu a, .topmenu a:link, .topmenu a:visited {
+        font-size: 10pt;
+        padding: 8px 3px 0px 3px;
+    }
+
+    .main {
+        flex-wrap: wrap;
+    }
+
+    .leftblock {
+        width: 236px;
+    }
+
+    .rightblock {
+        width: 236px;
+    }
+
+}
+@media only screen and (min-width : 768px) and (max-width : 850px) {
+    .topmenu a, .topmenu a:link, .topmenu a:visited {
+        font-size: 9pt;
+        padding: 9px 2px 0px 2px;
+    }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 576px) and (max-width : 767px) {
+    .main {
+        flex-wrap: wrap;
+    }
+
+    header {
+        height: 116px;
+    }
+
+    .logotip {
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .slogan {
+        /* width: 100%; */
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .search_form_head {
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .topmenu {
+        height: 80px;
+        background-color: #ffffff;
+        background-repeat: repeat;
+    }
+}
+@media only screen and (min-width : 576px) and (max-width : 620px) {
+    .topmenu a, .topmenu a:link, .topmenu a:visited {
+        font-size: 11pt;
+        padding: 7px 5px 0px 5px;
+    }
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 240px) and (max-width : 575px) {
+    .main {
+        flex-wrap: wrap;
+    }
+
+    header {
+        height: 118px;
+    }
+
+    .logotip {
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .slogan {
+        /* width: 100%; */
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .search_form_head {
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+        height: 50px;
+    }
+    .search_field {
+        width: 400px;
+    }
+    #search_form {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .topmenu {
+        height: 80px;
+        background-color: #ffffff;
+        background-repeat: repeat;
+    }
+
+    .topmenu ul {
+        width: 100%;
+    }
+
+    .topmenu a, .topmenu a:link, .topmenu a:visited {
+        font-size: 10pt;
+        padding: 8px 3px 0px 3px;
+    }
+}
+@media only screen and (min-width : 240px) and (max-width : 510px) {
+    .topmenu ul {
+        width: 100%;
+    }
+    .topmenu a, .topmenu a:link, .topmenu a:visited {
+        font-size: 9pt;
+        padding: 9px 2px 0px 2px;
+    }
+}
+
+@-moz-document url-prefix() {
+  fieldset { display: table-cell; }
+}

@@ -1,0 +1,4 @@
+<?php defined('A') or die('Access denied');?>
+<div id="oformit_zakaz"><a class="cisco_order_link" href="<?=D.S;?>om/ord/cisco" target="_blank" title="Нажми на кнопку &quot;ОФОРМИТЬ ЗАКАЗ!&quot;, чтобы заказать обучающий курс &quot;Сиськи по-русски или 11 простых шагов по сетевым технологиям Cisco на русском языке&quot;"></a></div>
+<div class="cisco_image-center"><a class="cisco_order_link" href="<?=D.S;?>om/ord/cisco" target="_blank"><img src="<?=I.S;?>templates/all/platezhi.png" width="173px" height="21px" />&nbsp;<img src="<?=I.S;?>templates/all/platezhi.jpg" width="170px" height="20px" /></a></div>
+<div class="probel">&nbsp;</div>

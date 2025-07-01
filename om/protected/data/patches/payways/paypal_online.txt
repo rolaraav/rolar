@@ -1,0 +1,23 @@
+﻿<h4>Оплата с помощью PayPal</h4>
+
+<div class="payimg">
+<img src="{bu}images/admin/pay/paypal.jpg">
+</div>
+
+<br>
+Чтобы перейти к прямой оплате на сайте PayPal, нажмите:
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+ <input name="cmd" type="hidden" value="_xclick">
+ <input name="business" type="hidden" value="{paypal_email}">
+ <input name="item_name" type="hidden" value="Oplata Scheta #{bill_id}">
+ <input name="item_number" type="hidden" value="{bill_id}">
+ <input name="amount" type="hidden" value="{rur}">
+ <input name="no_shipping" type="hidden" value="1">
+ <input name="rm" type="hidden" value="1">
+ <input name="return" type="hidden" value="{bu}f/ok">
+ <input name="cancel_return" type="hidden" value="{bu}f/fail">
+ <input name="currency_code" type="hidden" value="RUB">
+ <input name="notify_url" type="hidden" value="{bu}ps/paypal">
+ <input type="submit" value="Платить через PayPal">
+</form>

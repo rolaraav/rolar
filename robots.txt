@@ -1,0 +1,24 @@
+User-Agent: *
+# Crawl-delay: 30
+Disallow: /cgi-bin/
+Disallow: /aav/
+Disallow: /fancybox/
+Disallow: /highslide/
+Disallow: /images/aav/
+Disallow: /images/banners/
+Disallow: /images/banners/468x60/
+Disallow: /images/codegen/
+Disallow: /images/comments_settings/
+Disallow: /images/rating/
+Disallow: /images/users/
+Disallow: /images/users/avatars/
+Disallow: /js/
+Disallow: /syntaxhighlighter/
+Disallow: /partner_products.php?partner=5
+Disallow: /view_partner_product.php?id=45
+Disallow: /view_partner_product.php?id=46
+Disallow: /view_partner_product.php?id=57
+Disallow: /view_partner_product.php?id=58
+Disallow: /view_partner_product.php?id=60
+Host: rolar.ru
+Sitemap: http://rolar.ru/sitemap.xml

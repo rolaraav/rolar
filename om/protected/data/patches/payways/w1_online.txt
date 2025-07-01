@@ -1,0 +1,14 @@
+<h4>Оплата через Единую Кассу (W1)</h4>
+
+<div class="payimg">
+<img src="{bu}images/admin/pay/w1.jpg">
+</div>
+
+<br>
+Чтобы перейти к выбору способа оплаты через Единую Кассу (W1), нажмите:
+
+
+<form method="post" action="https://wl.walletone.com/checkout/checkout/Index">
+  {w1_form}
+  <input type="submit" value="Продолжить оплату"/>
+</form>

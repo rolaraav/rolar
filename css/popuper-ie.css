@@ -1,0 +1,7 @@
+#popuperOverlayer {
+    background: url(../images/popuper/ovaerlayer.png);
+}
+#popuper form input {
+    padding-top: 6px;
+    padding-bottom: 0px;
+}

@@ -1,0 +1,369 @@
+{basic}
+<style type="text/css">
+.obform {background-color:#F9FAF9;background-attachment:fixed;font-family: Verdana, Arial, Helvetica, sans-serif;color:#333333;padding:0;margin:0;width:754px;border: 1px solid #EEEEEE;background:#FFFFFF;font-size:12px;}.obrequired span {color: red;}.obform h1 {margin: 10px 0px;padding-bottom: 4px;clear:left;font-weight: bold;font-size: 14px;color:003366;border-bottom: 1px solid #b0c0d0;text-align:left;}.obform h2 {margin: 10px 0px;padding-bottom: 4px;clear:left;font-weight: bold;font-size: 12px;color:EE5500;text-align:left;}.obwrap {background:FFFFFF;position:relative;margin-bottom:12px;margin-top:12px;margin-left:12px;margin-right:12px;width:auto;border:1px solid #CAD6E8;padding:12px 25px 18px 25px;}.obwrap h3 {font: normal 11px Verdana, Arial, Helvetica, sans-serif;height:12px;padding:2px 18px 4px 6px;clear: right;color:#99ACCA; margin:0;position:absolute;right:-1px;top:-9px;border:0 none;}.obform fieldset {clear: both;margin: 12px 0 0 0;padding: 0;border: 1px solid #CAD6E8;background-color: #FcFcFf;position:relative;}.obform legend {margin-left: 12px;color: #333333;font-weight: bold;padding:0 7px;color:#99ACCA;font-weight:normal;font-size:11px;}.obform fieldset ol {padding: 4px 12px 8px 12px;list-style: none;}.obform fieldset li {padding-bottom: 9px;}.obform fieldset.submit {float:none;width:auto;border:0 none;padding-left:225;background-color: transparent;background-image: none;}.obform label {float:left;width:200px;margin-left:12px;padding-top:2px;font-weight:bold;}.obtext {width:220px;height:20px;border: 1px solid #CAD6E8;}.oblongtext {width:420px;height:20px;border: 1px solid #CAD6E8;}.obtextarea {border: 1px solid #CAD6E8;}.obcheckbox {border: 1px solid #CAD6E8;}.obselect {width:220px;height:20px;border: 1px solid #CAD6E8;}.obnumeric {width:60px;height:20px;border: 1px solid #CAD6E8;}
+</style>
+
+<table border=0 align="center" style="width:754px;">
+<tr><td>
+
+<div class="obform obwrap">
+
+<h1>{goodname}</h1>
+
+<div class="form">
+
+<form onSubmit="if(confirm(&quot;Вы подтверждаете правильность введённых Вами данных?&quot;)) return true; else return false;" id="bill-form" action="{burl}ord/{goodid}" method="post">
+    <div class="validerror"></div>
+
+<fieldset>
+
+<legend>{block1}</legend>
+
+<br>
+<ol>
+
+{/basic}
+
+{b_email}
+    <li>
+        <label for="Bill_email" class="obrequired">E-mail <span class="obrequired">*</span></label>        <input size="60" maxlength="255" class="obtext" name="Bill[email]" id="Bill_email" type="text" />            </li>
+{/b_email}
+
+{b_amail}
+    <li>
+        <label for="Bill_amail">Другой e-mail (если есть)</label>        <input size="60" maxlength="255" class="obtext" name="Bill[amail]" id="Bill_amail" type="text" />            </li>
+{/b_amail}
+
+{b_cupon}
+    <li>
+        <label for="Bill_cupon">Купон скидки (если есть)</label>        <input size="60" maxlength="255" class="obtext" name="Bill[cupon]" id="Bill_cupon" type="text" />            </li>
+{/b_cupon}
+
+{b_block}
+
+
+</ol>
+</fieldset>
+
+
+<fieldset>
+
+<legend>{block2}</legend>
+
+<ol>
+<br>
+
+{/b_block}
+
+{b_surname}
+    <li>
+        <label for="Bill_surname" class="obrequired">Фамилия <span class="obrequired">*</span></label>        <input size="60" maxlength="255" class="obtext" name="Bill[surname]" id="Bill_surname" type="text" />            </li>
+{/b_surname}    
+
+{b_uname}
+    <li>
+        <label for="Bill_uname" class="obrequired">Имя <span class="obrequired">*</span></label>        <input size="60" maxlength="255" class="obtext" name="Bill[uname]" id="Bill_uname" type="text" />            </li>    
+{/b_uname}
+
+{b_otchestvo}
+    <li>
+        <label for="Bill_otchestvo" class="obrequired">Отчество <span class="obrequired">*</span></label>        <input size="60" maxlength="255" class="obtext" name="Bill[otchestvo]" id="Bill_otchestvo" type="text" />            </li>
+{/b_otchestvo}
+
+{b_strana}
+    <li>
+        <label for="Bill_strana" class="obrequired">Страна <span class="obrequired">*</span></label>        <select class="obselect" name="Bill[strana]" id="Bill_strana">
+<option value="Россия">Россия</option>
+<option value="Украина">Украина</option>
+<option value="Австралия">Австралия</option>
+<option value="Австрия">Австрия</option>
+<option value="Азербайджан">Азербайджан</option>
+<option value="Албания">Албания</option>
+<option value="Алжир">Алжир</option>
+<option value="Американское Самоа">Американское Самоа</option>
+<option value="Ангилья (Брит.)">Ангилья (Брит.)</option>
+<option value="Ангола">Ангола</option>
+<option value="Андорра">Андорра</option>
+<option value="Антигуа и Барбуда">Антигуа и Барбуда</option>
+<option value="Аргентина">Аргентина</option>
+<option value="Армения">Армения</option>
+<option value="Аруба (Нид.)">Аруба (Нид.)</option>
+<option value="Афганистан">Афганистан</option>
+<option value="Багамы">Багамы</option>
+<option value="Бангладеш">Бангладеш</option>
+<option value="Барбадос">Барбадос</option>
+<option value="Бахрейн">Бахрейн</option>
+<option value="Беларусь">Беларусь</option>
+<option value="Белиз">Белиз</option>
+<option value="Бельгия">Бельгия</option>
+<option value="Бенин">Бенин</option>
+<option value="Бермуды (Брит.)">Бермуды (Брит.)</option>
+<option value="Болгария">Болгария</option>
+<option value="Боливия">Боливия</option>
+<option value="Босния и Герцеговина">Босния и Герцеговина</option>
+<option value="Ботсвана">Ботсвана</option>
+<option value="Бразилия">Бразилия</option>
+<option value="Британская территория в Индийском океане">Британская территория в Индийском океане</option>
+<option value="Бруней-Даруссалам">Бруней-Даруссалам</option>
+<option value="Буркина-Фасо">Буркина-Фасо</option>
+<option value="Бурунди">Бурунди</option>
+<option value="Бутан">Бутан</option>
+<option value="Вануату">Вануату</option>
+<option value="Ватикан">Ватикан</option>
+<option value="Великобритания">Великобритания</option>
+<option value="Венгрия">Венгрия</option>
+<option value="Венесуэла">Венесуэла</option>
+<option value="Виргинские острова (Брит.)">Виргинские острова (Брит.)</option>
+<option value="Виргинские острова (США)">Виргинские острова (США)</option>
+<option value="Вьетнам">Вьетнам</option>
+<option value="Габон">Габон</option>
+<option value="Гаити">Гаити</option>
+<option value="Гайана">Гайана</option>
+<option value="Гамбия">Гамбия</option>
+<option value="Гана">Гана</option>
+<option value="Гваделупа (Фр.)">Гваделупа (Фр.)</option>
+<option value="Гватемала">Гватемала</option>
+<option value="Гвинея">Гвинея</option>
+<option value="Гвинея-Бисау">Гвинея-Бисау</option>
+<option value="Германия">Германия</option>
+<option value="Гернси (Брит.)">Гернси (Брит.)</option>
+<option value="Гибралтар (Брит.)">Гибралтар (Брит.)</option>
+<option value="Гондурас">Гондурас</option>
+<option value="Гренада">Гренада</option>
+<option value="Гренландия (Дат.)">Гренландия (Дат.)</option>
+<option value="Греция">Греция</option>
+<option value="Грузия">Грузия</option>
+<option value="Гуам (США)">Гуам (США)</option>
+<option value="Дания">Дания</option>
+<option value="Джерси (Брит.)">Джерси (Брит.)</option>
+<option value="Джибути">Джибути</option>
+<option value="Доминика">Доминика</option>
+<option value="Доминиканская Республика">Доминиканская Республика</option>
+<option value="Египет">Египет</option>
+<option value="Замбия">Замбия</option>
+<option value="Зап. Сахара">Зап. Сахара</option>
+<option value="Зимбабве">Зимбабве</option>
+<option value="Израиль">Израиль</option>
+<option value="Индия">Индия</option>
+<option value="Индонезия">Индонезия</option>
+<option value="Иордания">Иордания</option>
+<option value="Ирак">Ирак</option>
+<option value="Иран">Иран</option>
+<option value="Ирландия">Ирландия</option>
+<option value="Исландия">Исландия</option>
+<option value="Испания">Испания</option>
+<option value="Италия">Италия</option>
+<option value="Йемен">Йемен</option>
+<option value="Кабо-Верде">Кабо-Верде</option>
+<option value="Казахстан">Казахстан</option>
+<option value="Камбоджа">Камбоджа</option>
+<option value="Камерун">Камерун</option>
+<option value="Канада">Канада</option>
+<option value="Катар">Катар</option>
+<option value="Кения">Кения</option>
+<option value="Кипр">Кипр</option>
+<option value="Киргизия (Кыргызстан)">Киргизия (Кыргызстан)</option>
+<option value="Кирибати">Кирибати</option>
+<option value="Китай">Китай</option>
+<option value="Кокосовые острова (Австр.)">Кокосовые острова (Австр.)</option>
+<option value="Колумбия">Колумбия</option>
+<option value="Коморы">Коморы</option>
+<option value="Конго (Заир)">Конго (Заир)</option>
+<option value="Конго, Республика">Конго, Республика</option>
+<option value="Корея (КНДР)">Корея (КНДР)</option>
+<option value="Корея, Республика">Корея, Республика</option>
+<option value="Коста-Рика">Коста-Рика</option>
+<option value="Кот-д`Ивуар">Кот-д`Ивуар</option>
+<option value="Куба">Куба</option>
+<option value="Кувейт">Кувейт</option>
+<option value="Лаос">Лаос</option>
+<option value="Латвия">Латвия</option>
+<option value="Лесото">Лесото</option>
+<option value="Либерия">Либерия</option>
+<option value="Ливан">Ливан</option>
+<option value="Ливия">Ливия</option>
+<option value="Литва">Литва</option>
+<option value="Лихтенштейн">Лихтенштейн</option>
+<option value="Люксембург">Люксембург</option>
+<option value="Маврикий">Маврикий</option>
+<option value="Мавритания">Мавритания</option>
+<option value="Мадагаскар">Мадагаскар</option>
+<option value="Майотт (Фр.)">Майотт (Фр.)</option>
+<option value="Македония">Македония</option>
+<option value="Малави">Малави</option>
+<option value="Малайзия">Малайзия</option>
+<option value="Мали">Мали</option>
+<option value="Мальдивы">Мальдивы</option>
+<option value="Мальта">Мальта</option>
+<option value="Марокко">Марокко</option>
+<option value="Мартиника (Фр.)">Мартиника (Фр.)</option>
+<option value="Маршалловы Острова">Маршалловы Острова</option>
+<option value="Мексика">Мексика</option>
+<option value="Микронезия (Федеративные Штаты Микронезии)">Микронезия (Федеративные Штаты Микронезии)</option>
+<option value="Мозамбик">Мозамбик</option>
+<option value="Молдавия">Молдавия</option>
+<option value="Монако">Монако</option>
+<option value="Монголия">Монголия</option>
+<option value="Монтсеррат (Брит)">Монтсеррат (Брит)</option>
+<option value="Мьянма">Мьянма</option>
+<option value="Намибия">Намибия</option>
+<option value="Науру">Науру</option>
+<option value="Непал">Непал</option>
+<option value="Нигер">Нигер</option>
+<option value="Нигерия">Нигерия</option>
+<option value="Нидерландские Антилы">Нидерландские Антилы</option>
+<option value="Нидерланды">Нидерланды</option>
+<option value="Никарагуа">Никарагуа</option>
+<option value="Ниуэ (Н.Зел.)">Ниуэ (Н.Зел.)</option>
+<option value="Новая Зеландия">Новая Зеландия</option>
+<option value="Новая Каледония (Фр.)">Новая Каледония (Фр.)</option>
+<option value="Норвегия">Норвегия</option>
+<option value="Объединенные Арабские Эмираты">Объединенные Арабские Эмираты</option>
+<option value="Оман">Оман</option>
+<option value="Остров Буве (Норв.)">Остров Буве (Норв.)</option>
+<option value="Остров Кайман (Брит.)">Остров Кайман (Брит.)</option>
+<option value="Остров Мэн (Брит.)">Остров Мэн (Брит.)</option>
+<option value="Остров Рождества (Австр.)">Остров Рождества (Австр.)</option>
+<option value="Острова Кука (Н.Зел.)">Острова Кука (Н.Зел.)</option>
+<option value="Острова Теркс и Кайкос (Брит.)">Острова Теркс и Кайкос (Брит.)</option>
+<option value="Острова Херд и Макдональд (Австр.)">Острова Херд и Макдональд (Австр.)</option>
+<option value="Пакистан">Пакистан</option>
+<option value="Палау">Палау</option>
+<option value="Палестина">Палестина</option>
+<option value="Панама">Панама</option>
+<option value="Папуа - Новая Гвинея">Папуа - Новая Гвинея</option>
+<option value="Парагвай">Парагвай</option>
+<option value="Перу">Перу</option>
+<option value="Питкерн (Брит.)">Питкерн (Брит.)</option>
+<option value="Польша">Польша</option>
+<option value="Португалия">Португалия</option>
+<option value="Реюньон (Фр.)">Реюньон (Фр.)</option>
+<option value="Руанда">Руанда</option>
+<option value="Румыния">Румыния</option>
+<option value="США">США</option>
+<option value="Сальвадор">Сальвадор</option>
+<option value="Самоа">Самоа</option>
+<option value="Сан-Марино">Сан-Марино</option>
+<option value="Сан-Томе и Принсипи">Сан-Томе и Принсипи</option>
+<option value="Саудовская Аравия">Саудовская Аравия</option>
+<option value="Свазиленд">Свазиленд</option>
+<option value="Святая Елена (Брит.)">Святая Елена (Брит.)</option>
+<option value="Сев. Марианские острова (США)">Сев. Марианские острова (США)</option>
+<option value="Сейшелы">Сейшелы</option>
+<option value="Сенегал">Сенегал</option>
+<option value="Сент-Винсент и Гренадины">Сент-Винсент и Гренадины</option>
+<option value="Сент-Китс и Невис">Сент-Китс и Невис</option>
+<option value="Сент-Люсия">Сент-Люсия</option>
+<option value="Сент-Пьер и Микелон (Фр.)">Сент-Пьер и Микелон (Фр.)</option>
+<option value="Сербия">Сербия</option>
+<option value="Сингапур">Сингапур</option>
+<option value="Сирия">Сирия</option>
+<option value="Словакия">Словакия</option>
+<option value="Словения">Словения</option>
+<option value="Соломоновы Острова">Соломоновы Острова</option>
+<option value="Сомали">Сомали</option>
+<option value="Судан">Судан</option>
+<option value="Суринам">Суринам</option>
+<option value="Сьерра-Леоне">Сьерра-Леоне</option>
+<option value="Таджикистан">Таджикистан</option>
+<option value="Таиланд">Таиланд</option>
+<option value="Тайвань">Тайвань</option>
+<option value="Танзания">Танзания</option>
+<option value="Тимор">Тимор</option>
+<option value="Того">Того</option>
+<option value="Токелау (Н.Зел.)">Токелау (Н.Зел.)</option>
+<option value="Тонга">Тонга</option>
+<option value="Тринидат и Тобаго">Тринидат и Тобаго</option>
+<option value="Тувалу">Тувалу</option>
+<option value="Тунис">Тунис</option>
+<option value="Туркмения">Туркмения</option>
+<option value="Турция">Турция</option>
+<option value="Уганда">Уганда</option>
+<option value="Узбекистан">Узбекистан</option>
+<option value="Уоллис и Футуна острова (Фр.)">Уоллис и Футуна острова (Фр.)</option>
+<option value="Уругвай">Уругвай</option>
+<option value="Фарерские о-ва (Дания)">Фарерские о-ва (Дания)</option>
+<option value="Фиджи">Фиджи</option>
+<option value="Филиппины">Филиппины</option>
+<option value="Финляндия">Финляндия</option>
+<option value="Фолклендские острова (Брит.)">Фолклендские острова (Брит.)</option>
+<option value="Франция">Франция</option>
+<option value="Французская Гвиана">Французская Гвиана</option>
+<option value="Французская Полинезия">Французская Полинезия</option>
+<option value="Французские Южные территории">Французские Южные территории</option>
+<option value="Хорватия">Хорватия</option>
+<option value="Центральноафриканская Республика">Центральноафриканская Республика</option>
+<option value="Чад">Чад</option>
+<option value="Черногория">Черногория</option>
+<option value="Чехия">Чехия</option>
+<option value="Чили">Чили</option>
+<option value="Швейцария">Швейцария</option>
+<option value="Швеция">Швеция</option>
+<option value="Шпицберген (Норв.)">Шпицберген (Норв.)</option>
+<option value="Шри Ланка">Шри Ланка</option>
+<option value="Эквадор">Эквадор</option>
+<option value="Экваториальная Гвинея">Экваториальная Гвинея</option>
+<option value="Эритрея">Эритрея</option>
+<option value="Эстония">Эстония</option>
+<option value="Эфиопия">Эфиопия</option>
+<option value="Юж. Джорджия и Юж. Сандвичевы о-ва (Брит.)">Юж. Джорджия и Юж. Сандвичевы о-ва (Брит.)</option>
+<option value="Южно-Африканская Республика (ЮАР)">Южно-Африканская Республика (ЮАР)</option>
+<option value="Ямайка">Ямайка</option>
+<option value="Япония">Япония</option>
+</select>            </li>
+{/b_strana}
+
+{b_region}
+    <li>
+        <label for="Bill_region">Область</label>        <input size="60" maxlength="255" class="obtext" name="Bill[region]" id="Bill_region" type="text" />            </li>
+{/b_region}
+
+{b_gorod}
+    <li>
+        <label for="Bill_gorod" class="obrequired">Город <span class="obrequired">*</span></label>        <input size="60" maxlength="255" class="obtext" name="Bill[gorod]" id="Bill_gorod" type="text" />            </li>
+{/b_gorod}
+
+{b_postindex}
+    <li>
+        <label for="Bill_postindex" class="obrequired">Почтовый индекс <span class="obrequired">*</span></label>        <input size="30" maxlength="30" class="obtext" name="Bill[postindex]" id="Bill_postindex" type="text" />            </li>
+{/b_postindex}
+
+{b_address}
+    <li>
+        <label for="Bill_address" class="obrequired">Адрес <span class="obrequired">*</span></label>        <input size="60" maxlength="255" class="obtext" name="Bill[address]" id="Bill_address" type="text" />            </li>
+{/b_address}
+  
+{b_phone}  
+    <li>
+        <label for="Bill_phone" class="obrequired">Телефон <span class="obrequired">*</span></label>        <input size="60" maxlength="255" class="obtext" name="Bill[phone]" id="Bill_phone" type="text" />        <span style="font-size:9px; color:gray"><i>Пример: +7 (495) 123-4567</i></span>
+            </li>
+{/b_phone}  
+    
+{b_comment}      
+    <li>
+        <label for="Bill_comment">Комментарий к заказу</label>        <input size="60" maxlength="255" class="obtext" name="Bill[comment]" id="Bill_comment" type="text" />          
+    </li>    
+{/b_comment}      
+    
+{basic2}
+</ol>
+</fieldset>
+
+
+<fieldset class="submit">
+        <input class="submit" type="submit" name="yt0" value="Заказать сейчас" /></fieldset>
+
+</form>
+</div><!-- form -->
+
+</div>
+								
+
+            </div>            
+           
+        </td>
+
+    </tr>
+</table>
+</div>
+{/basic2}

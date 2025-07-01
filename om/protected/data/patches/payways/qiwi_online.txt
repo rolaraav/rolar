@@ -1,0 +1,13 @@
+﻿<h4>Оплата с помощью Qiwi</h4>
+
+<div class="payimg">
+<img src="{bu}images/admin/pay/qiwi.jpg">
+</div>
+
+<br>
+Чтобы перейти к оплате с помощью Qiwi, введите Ваш номер Qiwi кошелька в международном формате - <b>+79991111111</b>:<br>&nbsp;<br>
+
+<form action="{qiwi_link}" method="post" target="_blank">
+ <input class="text" type="text" name="tel" value="+"><br>
+ <input type="submit" value="Оплата через Qiwi">
+</form>

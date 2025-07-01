@@ -1,0 +1,140 @@
+.obform {
+    background-color:#F9FAF9;
+    background-attachment:fixed;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    color:#333333;
+    padding:0;
+    margin:0;
+    width:754px;
+    border: 1px solid #EEEEEE;
+    background:#FFFFFF;
+    font-size:12px;
+}
+
+.obrequired span {
+	color: red;
+}
+
+.obform h1 {
+    margin: 10px 0px;
+    padding-bottom: 4px;
+    clear:left;
+    font-weight: bold;
+    font-size: 14px;
+    color:003366;
+    border-bottom: 1px solid #b0c0d0;
+    text-align:left;    
+}
+
+.obform h2 {
+    margin: 10px 0px;
+    padding-bottom: 4px;
+    clear:left;
+    font-weight: bold;
+    font-size: 12px;
+    color:EE5500;
+    text-align:left;    
+}
+
+.obwrap {
+    background:FFFFFF;    
+    position:relative;
+    margin-bottom:12px;
+    margin-top:12px;
+    margin-left:12px;
+    margin-right:12px;
+    width:auto;
+    border:1px solid #CAD6E8;
+    padding:12px 25px 18px 25px;
+}
+
+.obwrap h3 {
+  font:  normal 11px Verdana, Arial, Helvetica, sans-serif;
+  height:12px;
+  padding:2px 18px 4px 6px;
+  clear: right;
+  color:#99ACCA;
+  background:transparent url(../images/theme/bullet1.gif) right center no-repeat;
+  margin:0;
+  position:absolute;
+  right:-1px;
+  top:-9px;
+  border:0 none;
+}
+
+.obform fieldset {
+    clear: both;    
+    margin: 12px 0 0 0;
+    padding: 0;
+    border: 1px solid #CAD6E8;
+    background-color: #FcFcFf;
+    position:relative;
+}
+
+.obform legend {
+    margin-left: 12px;
+    color: #333333;
+    font-weight: bold;
+    padding:0 7px;
+    color:#99ACCA;
+    font-weight:normal;
+    font-size:11px;
+}
+
+.obform fieldset ol {
+    padding: 4px 12px 8px 12px;
+    list-style: none;
+}
+
+.obform fieldset li {
+    padding-bottom: 9px;
+}
+
+.obform fieldset.submit {
+    float:none; 
+    width:auto;
+    border:0 none;
+    padding-left:225;
+    background-color: transparent;
+    background-image: none;
+}
+
+.obform label {
+    float:left;
+    width:200px;
+    margin-left:12px;
+    padding-top:2px;
+    font-weight:bold;
+}
+
+.obtext {
+    width:220px;
+    height:20px;
+    border: 1px solid #CAD6E8;
+}
+
+.oblongtext {
+    width:420px;
+    height:20px;
+    border: 1px solid #CAD6E8;
+}
+
+.obtextarea {
+    border: 1px solid #CAD6E8;
+}
+
+.obcheckbox {
+    border: 1px solid #CAD6E8;
+}
+
+.obselect {
+    width:220px;
+    height:20px;
+    border: 1px solid #CAD6E8;
+}
+
+.obnumeric {
+    width:60px;
+    height:20px;
+    border: 1px solid #CAD6E8;
+}

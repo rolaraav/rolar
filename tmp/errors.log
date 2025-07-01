@@ -1,0 +1,79 @@
+[2024-05-30 21:20:14] Ошибка: 1 | Код ответа HTTP: 500 | Текст ошибки: Call to undefined method app\models\BaseModel::get_page() | Файл: D:\YandexDisk\OpenServer\domains\localhost\app\controllers\OfertaController.php | Строка: 60
+[2024-05-30 21:23:13] Ошибка: 1 | Код ответа HTTP: 500 | Текст ошибки: Call to undefined method app\models\BaseModel::get_page() | Файл: D:\YandexDisk\OpenServer\domains\localhost\app\controllers\OfertaController.php | Строка: 27
+[2024-05-30 21:27:45] Ошибка: 1 | Код ответа HTTP: 500 | Текст ошибки: Call to undefined method app\models\BaseModel::get_page() | Файл: D:\YandexDisk\OpenServer\domains\localhost\app\controllers\OfertaController.php | Строка: 27
+[2024-05-30 21:34:01] Ошибка: 8 | Код ответа HTTP: 500 | Текст ошибки: Undefined variable: breadcrumbs | Файл: D:\YandexDisk\OpenServer\domains\localhost\app\controllers\OfertaController.php | Строка: 38
+[2024-05-30 21:34:34] Ошибка: 1 | Код ответа HTTP: 500 | Текст ошибки: Call to a member function getBreadcrumbs() on string | Файл: D:\YandexDisk\OpenServer\domains\localhost\app\controllers\OfertaController.php | Строка: 39
+[2024-05-30 23:29:55] Ошибка: 8 | Код ответа HTTP: 500 | Текст ошибки: Undefined variable: news | Файл: D:\YandexDisk\OpenServer\domains\localhost\app\views\oferta\index.php | Строка: 45
+[2024-05-31 00:10:16] Ошибка: 8192 | Код ответа HTTP: 500 | Текст ошибки: Optional parameter $var declared before required parameter $tmp is implicitly treated as a required parameter | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\libs\Album.php | Строка: 35
+[2024-05-31 00:10:25] Ошибка: 8192 | Код ответа HTTP: 500 | Текст ошибки: Optional parameter $var declared before required parameter $tmp is implicitly treated as a required parameter | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\libs\Album.php | Строка: 35
+[2024-05-31 00:32:10] Ошибка: 8 | Код ответа HTTP: 500 | Текст ошибки: Undefined variable: news | Файл: D:\YandexDisk\OpenServer\domains\localhost\app\views\oferta\index.php | Строка: 45
+[2024-05-31 00:47:10] Ошибка: 8192 | Код ответа HTTP: 500 | Текст ошибки: Optional parameter $var declared before required parameter $tmp is implicitly treated as a required parameter | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\libs\Album.php | Строка: 35
+[2024-05-31 00:56:27] Ошибка: 8 | Код ответа HTTP: 500 | Текст ошибки: Undefined variable: breadcrumbs | Файл: D:\YandexDisk\OpenServer\domains\localhost\app\controllers\OfertaController.php | Строка: 38
+[2024-05-31 01:09:59] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2024-05-31 01:09:59] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2024-05-31 01:10:00] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2024-05-31 01:10:00] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2024-05-31 01:10:00] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2024-05-31 01:10:02] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2024-05-31 01:10:04] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Контроллер app\controllers\ImagesController не найден. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 212
+[2024-05-31 01:12:14] Ошибка: 8 | Код ответа HTTP: 500 | Текст ошибки: Undefined variable: text | Файл: D:\YandexDisk\OpenServer\domains\localhost\app\views\oferta\index.php | Строка: 14
+[2024-05-31 09:18:01] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2024-05-31 09:18:01] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2024-05-31 09:18:05] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2024-06-04 07:42:31] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2024-06-04 07:42:31] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2024-06-04 07:42:34] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2024-06-04 07:42:43] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2024-06-04 08:36:40] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2024-06-04 08:36:40] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2024-06-04 08:40:51] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2024-06-04 08:40:51] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2024-06-04 08:41:00] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2024-06-04 08:41:01] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2025-02-08 12:21:01] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2025-02-08 12:21:01] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2025-02-08 12:21:02] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2025-02-08 12:21:02] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2025-02-08 12:21:03] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2025-02-23 03:38:35] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2025-02-23 03:38:35] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2025-02-23 03:38:36] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2025-02-23 03:38:36] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2025-02-23 03:38:36] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2025-02-23 03:38:49] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2025-02-23 03:38:49] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2025-02-23 03:38:49] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2025-02-23 03:38:49] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2025-02-23 03:38:49] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2025-02-23 03:38:49] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2025-02-23 03:44:23] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2025-02-23 03:44:23] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2025-02-23 03:44:23] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2025-02-23 03:44:23] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2025-02-23 10:37:13] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2025-02-23 10:37:13] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2025-02-23 10:37:13] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2025-02-23 10:37:13] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2025-02-23 15:06:44] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2025-02-23 15:06:44] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2025-02-23 15:06:44] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2025-02-23 15:06:44] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2025-02-23 15:06:44] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2025-02-23 15:06:49] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2025-02-23 15:06:49] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2025-02-23 15:06:49] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2025-02-23 15:06:49] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2025-02-23 15:06:49] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2025-02-23 15:06:53] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2025-02-23 15:06:53] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2025-02-23 15:06:54] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2025-02-23 15:06:54] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2025-02-23 15:06:54] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2025-02-23 15:14:32] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2025-02-23 15:24:19] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2025-02-23 15:24:19] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2025-02-23 15:24:19] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2025-02-23 15:24:19] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2025-02-23 15:24:19] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2025-02-23 15:25:00] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217
+[2025-02-23 15:53:29] Ошибка: Исключение | Код ответа HTTP: 404 | Текст ошибки: Страница не найдена. | Файл: D:\YandexDisk\OpenServer\domains\localhost\core\Router.php | Строка: 217

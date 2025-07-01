@@ -1,0 +1,85 @@
+.wrap h3 {
+  font:  normal 11px Verdana, Arial, Helvetica, sans-serif;
+  height:1em;
+  padding:2px 18px 4px 6px;
+  clear: right;
+  color:#99ACCA ;
+  background:transparent url(../images/theme/bullet1.gif) right center no-repeat;
+  margin:0;
+  position:absolute;
+  right:18px;
+  top:-9px;
+  border:0 none;
+}
+
+.wrap2 h3 {
+  font:  normal 11px Verdana, Arial, Helvetica, sans-serif;
+  height:1em;
+  padding:2px 18px 4px 6px;
+  clear: right;
+  color:#99ACCA ;
+  background:transparent url(../images/theme/bullet1.gif) right center no-repeat;
+  margin:0;
+  position:absolute;
+  right:12px;
+  top:-9px;
+  border:0 none;
+}
+
+legend {
+    margin-left: 12px;
+    color: #333333;
+    font-weight: bold;
+    padding:0 7px;
+    color:#99ACCA;
+    font-weight:normal;
+    font-size:11px;
+    right:-9px;
+    top:-9px;
+    border:0 none;
+}
+
+.systemlink {
+    float:left;
+    margin-top:2px;
+    text-decoration:underline;
+}
+
+.systemparam {
+    margin-top:2px;
+    float:left;
+}
+
+.vidvalue {
+    margin-top:2px;
+    margin-left:3px;
+    color:#FF6600;
+    font-weight:bold;
+    float:left;
+}
+
+.oneitem {
+    margin-top:2px;
+    margin-left:3px;
+    float:left;
+}
+
+.urlitem {
+    margin-top:2px;
+    margin-left:3px;
+    float:left;
+}
+
+div.loading {
+    background-color: #eee;
+    background-image: url('../images/theme/loading.gif');
+    background-position:  center center;
+    background-repeat: no-repeat;
+    opacity: 1;
+}
+div.loading * {
+    opacity: .4;
+}
+
+ul.dropdown ul li	{
+ display: inline; width: 100%; } 

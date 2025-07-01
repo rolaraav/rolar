@@ -1,0 +1,22 @@
+<h4>Оплата с помощью ЮMoney</h4>
+
+<div class="payimg">
+<img src="{bu}images/admin/pay/yoomoney.png">
+</div>
+
+<br>
+Чтобы перейти к прямой оплате на сайте ЮMoney, нажмите:
+
+
+<form method="POST" action="https://yoomoney.ru/quickpay/confirm.xml">
+<input type="hidden" name="receiver" value="{yandex_account}">
+<input type="hidden" name="formcomment" value="Оплата счёта {bill_id}">
+<input type="hidden" name="short-dest" value="Оплата счёта {bill_id}">
+<input type="hidden" name="label" value="Oplata_scheta_{bill_id}">
+<input type="hidden" name="quickpay-form" value="shop">
+<input type="hidden" name="targets" value="Oplata_scheta_{bill_id}">
+<input type="hidden" name="sum" value="{rur}" data-type="number">
+<p align="left" style="margin-left: 30px; margin-top: 15px;"><input type="radio" name="paymentType" value="PC" checked> ЮMoney.Деньгами</input></p>
+<p align="left" style="margin-left: 30px; margin-top: 15px;"><input type="radio" name="paymentType" value="AC"> Банковской картой VISA/MasterCard</input> </p>
+<input style="margin-top: 18px;" type="submit" name="submit-button" value="Продолжить оплату">
+</form>

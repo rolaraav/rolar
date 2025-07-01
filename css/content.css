@@ -1,0 +1,1446 @@
+/* Стили для контента */
+.aboutblockimage {
+  background-color: #ffffff;
+  border: 3px ridge #cccccc;
+  box-sizing: content-box;
+  width: 200px;
+  height: 200px;
+  float: left;
+  margin: 5px 10px 5px 0px;
+  padding: 0px;
+  text-align: right;
+}
+
+.aboutimage {
+  width: 200px;
+  height: 200px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.podpis {
+  background: #ffffff url(../images/about/podpis.png) no-repeat 0 0;
+  border: 0px black solid;
+  float: none;
+  width: 100px;
+  height: 73px;
+  margin: 0px 0px 0px 60px;
+  padding: 0px;
+  text-indent: 0px;
+  vertical-align: middle;
+}
+
+.image {
+  float: none;
+  margin: 5px auto;
+  text-align: center;
+  text-indent: 0px !important;
+}
+
+.imageleft {
+  float: left;
+  margin: 5px 10px 5px 0px;
+}
+
+.imageright {
+  float: right;
+  margin: 5px 0px 5px 10px;
+}
+
+.yellowfon {
+  background-color: #ffff00;
+  color: #000000;
+}
+
+.yellowfon2 {
+  background-color: #ffff99;
+  color: #000000;
+}
+
+.black {color: #000000;}
+
+.gray {color: #808080;}
+.gray1 {color: #666666;}
+.darkgray {color: #333333;}
+
+.red {color: #ff0000;}
+.red1 {color: #cc0000;}
+.red2 {color: #990000;}
+
+.green {color: #00ff00;}
+.green1 {color: #008000;}
+.green2 {color: #00cc00;}
+.green3 {color: #009900;}
+
+.green4 {color: #66cc00;}
+
+.blue {color: #0000ff;}
+.blue1 {color: #006699;}
+.blue2 {color: #1e90ff;} /* #ff4500; */
+
+.pink {color: #ff00ff;}
+.pink1 {color: #f14272;}
+.pink2 {color: #db4065;}
+.pink-light1 {color: #ee215c;}
+.pink-light2 {color: #e9755e;}
+.pink-dark1 {color: #911b34;}
+.pink-dark2 {color: #c41e0e;}
+
+.orange {color: #ff6600;}
+
+.dialog {
+  background-color: #ffffff;
+  border-collapse: collapse;
+}
+
+.big {
+  font-size: 12pt;
+}
+
+.big-bold {
+  font-size: 12pt;
+  font-weight: bold;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.left {
+  text-align: left;
+}
+
+.center, .video {
+  float: none;
+  margin: 0 auto;
+  text-align: center;
+  text-indent: 0px;
+}
+
+.right {
+  text-align: right;
+}
+
+.video {
+  background: transparent; /* #d8d8d8 */
+  /* border: 2px inset #999999;
+  border-radius: 4px; */
+  display: block;
+  margin: 5px auto;
+  max-width: 580px;
+  padding: 0px;
+  /* -webkit-box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5); */
+  z-index: 6;
+}
+
+.youtube_video {
+  background: transparent; /* #d8d8d8 */
+  /* border: 2px inset #999999;
+  border-radius: 4px; */
+  display: table;
+  max-width: 580px;
+  height: 100%;
+  margin: 5px auto;
+  padding: 0px;
+  left: auto;
+  top: auto;
+  outline: 0px solid #00ff00;
+  position: relative;
+  text-align: center;
+  text-indent: 0px;
+  vertical-align: middle;
+  /* -webkit-box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5); */
+}
+
+.watch_video {
+  border: 0px solid #cfcfcf;
+  background-size: cover;
+  display: table;
+  margin: auto;
+  width: auto;
+  height: auto;
+  outline: 0px solid #ff0000;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+  opacity: 1;
+}
+
+.watch_video img {
+  display: block;
+  margin: 0px auto;
+  position: relative;
+  text-align: center;
+  opacity: 1;
+}
+
+.watch_video a {
+  background: transparent;
+  color: #ffffff;
+  cursor: pointer;
+  display: block;
+  font-size: 20pt;
+  font-style: italic;
+  font-weight: bold;
+  width: 100%;
+  padding-top: 30%;
+  height: 60%;
+  left: 0px;
+  top: 0px;
+  position: absolute;
+  outline: 0px solid #ff00ff;
+  opacity: 0.5;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 1px 1px 3px #000000;
+  vertical-align: middle;
+  -moz-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.watch_video a:hover {
+  opacity: 1;
+}
+
+.watch_video2 a {
+  background: transparent;
+  color: #ffffff;
+  cursor: pointer;
+  display: block;
+  font-size: 12pt;
+  font-style: italic;
+  font-weight: bold;
+  width: 100%;
+  padding-top: 20%;
+  height: 72%;
+  left: 0px;
+  top: 0px;
+  position: absolute;
+  outline: 0px solid #ff00ff;
+  opacity: 0.5;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 1px 1px 3px #000000;
+  vertical-align: middle;
+  -moz-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.watch_video2 a:hover {
+  opacity: 1;
+}
+
+.big_money {
+  color: #000000;
+  font-size: 14pt;
+  font-weight: bold;
+  text-decoration: underline;
+  text-indent: 0px;
+}
+
+.big_money_yellowfon {
+  /* background-color: #ffff99; */
+  color: #ff0000;
+  font-size: 14pt;
+  font-weight: bold;
+  text-decoration: underline;
+  text-indent: 0px;
+  text-shadow: 5px 5px 10px #ffff99, 5px 5px 10px #fefcc9, -8px 8px 10px #feec85, 8px -8px 10px #ffae34, -5px -5px 10px #ec760c;
+}
+
+.youtube_link {
+  font-family: 'courier new', courier;
+}
+
+#youtube_iframe_code, #youtube_object_code {
+  border: 1px inset #cccccc;
+  border-radius: 0px;
+  margin: 5px 0px 5px 0px;
+  resize: none;
+}
+
+ol.oferta li {
+  padding: 20px 0px 0px 0px;
+  list-style-position: inside;
+}
+
+ol.oferta p {
+  list-style-position: inside;
+  text-indent: 20px;
+}
+
+.syntaxhighlighter {
+  background-color: transparent;
+  border: 1px solid #cccccc;
+  color: #000000;
+  float: none;
+  margin: 5px 0px 5px 0px;
+  padding: 0px;
+  max-width: 580px;
+  text-align: center;
+  text-indent: 0px;
+}
+
+.syntaxhighlighter pre {
+  background-color: #ffff99;
+}
+
+.codelink {
+  background-color: transparent;
+  border: 1px solid #cccccc;
+  color: #000000;
+  float: none;
+  margin: 5px 0px 5px 0px;
+  padding: 5px 0px 5px 0px;
+  max-width: 580px;
+  text-align: center;
+  text-indent: 0px;
+  word-break: break-all; /* перенос строк внутри слов, которые не помещаются по ширине в заданную область */
+  white-space: normal; /* Переносить слова в строке */
+  word-wrap: break-word;  /* Переносить длинные слова */
+}
+
+.noindent {
+  text-indent: 0px;
+}
+
+#wmr-bonus_table {
+  width: 580px;
+}
+
+.wmr-bonus_table_td1 {
+  width: 250px !important;
+  overflow: visible;
+  white-space: normal; /* Переносить слова в строке */
+  word-wrap: break-word;  /* Переносить длинные слова */
+}
+
+.wmr-bonus_table_td2 {
+  width: 80px !important;
+  overflow: visible;
+  white-space: normal; /* Переносить слова в строке */
+  word-wrap: break-word;  /* Переносить длинные слова */
+}
+
+.wmr-bonus_table_td3 {
+  width: 250px !important;
+  overflow: visible;
+  white-space: normal; /* Переносить слова в строке */
+  word-wrap: break-word;  /* Переносить длинные слова */
+}
+
+.smile {
+  font-family: Wingdings;
+}
+
+.dcp_script {
+  background: #ffffff;
+  border: 1px solid #cccccc;
+  color: #000000;
+  font-size: 12px;
+  font-family: 'courier new', courier, monospace;
+  width: 556px;
+  padding: 0px 0px 0px 0px;
+  overflow: scroll;
+  vertical-align: top;
+}
+
+.red_courier_new {
+  color: #ff0000;
+  font-family: 'courier new', courier, monospace;
+  white-space: normal; /* Переносить слова в строке */
+  word-wrap: break-word;  /* Переносить длинные слова */
+}
+
+.courier_new, .courier_new_block {
+  font-family: 'courier new', courier, monospace;
+  white-space: normal; /* Переносить слова в строке */
+  word-wrap: break-word;  /* Переносить длинные слова */
+}
+
+.courier_new_block {
+  border: 1px solid #999999;
+  margin: 5px auto;
+  padding: 2px;
+}
+
+.perepiska, .perepiska1, .perepiska2 {
+  line-height: normal;
+  font-size: 11px;
+  font-family: tahoma, verdana, arial, sans-serif, 'Lucida Sans';
+  padding: 0px 5px 0px 5px;
+}
+.perepiska {
+  color: #4a4a4a;
+  margin-bottom: 5px;
+  outline: 0px solid #0000ff;
+}
+.perepiska1 {
+  color: #bb010e;
+  margin-top: 2px;
+  outline: 0px solid #ff0000;
+}
+.perepiska2 {
+  color: #006993;
+  margin-top: 2px;
+  outline: 0px solid #00ff00;
+}
+
+ul.syntaxhlighter li, ul.language_panel li, ul.articletext li {
+  list-style-type: none;
+  list-style-position: inside;
+}
+
+.interesting li {
+  font-size: 12px;
+  list-style-type: disc;
+  text-decoration: none;
+}
+
+.verse_number {
+  background: #ff9900;
+  width: auto;
+  float: left;
+  margin: 0px 0px 0px 110px;
+  outline: 0px none;
+}
+
+.verse {
+  width: 50%;
+  outline: 0px none;
+  margin: 0px auto 20px auto;
+  line-height: 1.2;
+  /* font-family: 'courier new', courier, monospace; */
+}
+
+.verse em {
+  line-height: 1.8;
+  margin-left: 120px;
+}
+
+.verse strong {
+  line-height: 1.2;
+  margin-left: 30px;
+}
+
+/***   Стили для Галереи   ***/
+.gallery_wrap {
+  font-family: Arial, Verdana, Tahoma, Helvetica, sans-serif;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-decoration: none;
+  text-indent: 0px;
+  width: 580px;
+  margin: 0px auto;
+}
+
+.gallery_title {
+  background: #f0f9ff;
+  border: 1px solid #e0e9ef;
+  color: #000000;
+  display: block;
+  font-size: 12pt;
+  font-weight: bold;
+  line-height: 1.5;
+  outline: 0px solid #000000;
+  margin: 5px 0px 5px 0px;
+  text-align: center;
+  text-indent: 0px;
+}
+
+.gallery_line {
+  display: block;
+}
+
+.gallery_line img {
+  cursor: pointer;
+  display: block;
+  float: left;
+  margin: 2px 0px 2px 0px;
+}
+.gallery_clear {
+  clear: both;
+  margin: 0px 0px 10px 0px;
+}
+
+/* Комментарии в галерее */
+.gallery_comments {
+  text-align: left;
+  padding: 0px;
+}
+.gallery_comments_title, .gallery_comment_new {
+  color: #60a0dc;
+  display: none;
+  font-size: 12pt;
+  font-weight: bold;
+  line-height: 1.5;
+  margin: 20px 0px 10px 0px;
+  text-align: left;
+  text-indent: 20px;
+}
+.gallery_next_comment {
+  background: #f0fcfc;
+  border: 1px solid #e0e9ef;
+  color: #454545;
+  cursor: pointer;
+  display: block;
+  margin: 0px 10px 5px 10px;
+  padding: 2px;
+  text-align: center;
+}
+.gallery_not_comments {
+  margin-bottom: 10px;
+}
+
+/* Форма добавления нового комментария */
+.gallery_comments form {
+  padding: 10px 20px 10px 20px;
+}
+.gallery_input {
+  padding: 0px 0px 5px 0px;
+}
+.gcomment_author, .gcomment_email, .gcomment_text {
+  width: 530px;
+}
+
+.gcomment_text {
+  resize: vertical;
+}
+
+/* Одиночный комментарий */
+.gallery_comment_single {
+  border-bottom: 1px solid #f0f0f0;
+  padding: 5px 0px 5px 0px;
+}
+.gallery_comment_name {
+  color: #2B587A;
+  font-size: 0.9em;
+  margin-bottom: 4px;
+}
+.gallery_comment_date {
+  color: #787878;
+  font-size: 0.7em;
+}
+.gallery_reply {
+  font-size: 0.7em;
+  color: #0080c0;
+  cursor: pointer;
+}
+
+/* Увеличенное изображение и фон */
+.gallery_view_bg {
+  background: #000000 url('../images/templates/all/bg_black.png') repeat;
+  display: none;
+  left: 0px;
+  top: 0px;
+  opacity: 0.7;
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  z-index: 1001;
+}
+.gallery_view_img {
+  display: none;
+  left: 0px;
+  top: 0px;
+  opacity: 1;
+  outline: 0px solid #0000ff;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: fixed;
+  width: 100%;
+  z-index: 1002;
+}
+.gallery_view_bg2 {
+  opacity: 0.1;
+}
+
+.gallery_img_wrap {
+  background-color: #ffffff;
+  display: block;
+  margin: 5px auto 5px auto;
+  outline: 0px solid #ff00ff;
+  opacity: 1;
+  padding: 20px;
+  position: relative;
+  width: 860px;
+  z-index: 1003;
+}
+.gallery_img {
+  z-index: 1003;
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
+.gallery_img img {
+  cursor: pointer;
+  max-width: 810px !important; /* Ширина большого изображения фиксирована */
+}
+.gallery_img > p {
+  text-align: left;
+  text-indent: 0px;
+}
+.gallery_image_name, .gallery_image_text, .gallery_image_date, .gallery_image_title {
+  margin-left: 30px;
+  margin-right: 30px;
+}
+.gallery_image_name {
+  color: #008099;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.gallery_image_text, .gallery_image_date {
+  margin-top: 10px;
+}
+.gallery_image_text {
+  float: left;
+}
+.gallery_image_date, .gallery_image_title {
+  color: #787878;
+  font-size: 0.9em;
+  float: right;
+}
+.gallery_image_title {
+  margin-top: 0px;
+}
+
+/* Кнопки управления изображениями */
+.gallery_back_img, .gallery_close_img {
+  cursor: pointer;
+  display: block;
+  width: 15%;
+  height: 17px;
+  top: 25px;
+  outline: 0px solid #ff0000;
+  opacity: 0.7;
+  position: fixed;
+  z-index: 1004;
+}
+.gallery_back_img {
+  left: 0px;
+  background: url('../images/templates/all/control.png') no-repeat;
+  background-position: 20% 0px;
+}
+.gallery_close_img {
+  right: 0px;
+  background: url('../images/templates/all/control.png') no-repeat;
+  background-position: 75% -19px;
+}
+.gallery_back_img:hover {
+  background-position: 20% -38px;
+}
+.gallery_close_img:hover {
+  background-position: 75% -57px;
+}
+.gallery_back_img div, .gallery_close_img div {
+  top: -25px;
+  height: 1024px;
+  outline: 0px solid #0000ff;
+  position: relative;
+}
+.gallery_switch_img {
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  height: 11px;
+  margin: 18px auto;
+  bottom: 0px;
+  outline: 0px solid #00ff00;
+  opacity: 0.7;
+  position: relative;
+  z-index: 1003;
+  background: url('../images/templates/all/gswitch.png') no-repeat;
+  background-position: 50% -11px;
+}
+.gallery_switch_img:hover {
+  background-position: 50% 0px;
+}
+.gallery_switch_img div {
+  top: -12px;
+  height: 36px;
+  outline: 0px solid #230055;
+  position: relative;
+}
+
+/* Стили для формы e-mail */
+#get_email_formOverlayer {
+  background: #000000;
+  display: none;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  position: fixed;
+  opacity: 0.7;
+  z-index: 11;
+}
+
+#get_email_form {
+  background: #32c3eb url(../images/popuper/popuper_bg.png) no-repeat; /* Old browsers */
+  background: -moz-linear-gradient(top, #32c3eb 0%, #ffffff 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#32c3eb), color-stop(100%,#ffffff)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #32c3eb 0%,#ffffff 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #32c3eb 0%,#ffffff 100%); /* Opera11.10+ */
+  background: -ms-linear-gradient(top, #32c3eb 0%,#ffffff 100%); /* IE10+ */
+  background: linear-gradient(top, #32c3eb 0%,#ffffff 100%); /* W3C */
+  /* ТУТ ВНИМАНИЕ использование filter для градиентной заливки в IE96-9 как в прошлом примере, сделает невозможным скруглить углы для IE9*/
+  border: 2px ridge #ffff00;
+  border-radius: 10px;
+  color: #000000;
+  display: none;
+  font-family: Arial;
+  margin: -80px 0 0 -120px; /* Варавниваем окно по центру*/
+  padding: 15px;
+  width: 200px;
+  height: 100px;
+  left: 50%;
+  top: 50%;
+  outline: 0px solid #ff0000;
+  position: fixed;
+  z-index: 12;
+}
+
+#get_email_form .close {
+  background: url(../images/popuper/close.png) no-repeat;
+  display: block;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: -24px;
+  right: -24px;
+}
+
+#get_email_form h1 {
+  color: #0033ff;
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0px 0px 5px 0px;
+  text-align: center;
+  text-indent: 0px;
+  text-transform: uppercase;
+}
+
+#get_email_form form {
+  display: block;
+  position: relative;
+  outline: 0px solid #00ff00;
+}
+
+#get_email_form form input {
+  background: #f8f9fa !important;
+  border: 1px solid #2794cd;
+  border-radius: 3px;
+  display: block;
+  width: 190px;
+  height: 20px;
+  margin: 0px 0px 0px 0px;
+  padding: 3px 4px;
+}
+#get_email_form form input:-webkit-autofill {
+  color: #666666 !important;
+  background: none !important;
+
+}
+#get_email_form form input:focus {
+  border: 1px inset #ff8000;
+}
+.ok {
+  border: 1px solid green;
+}
+.er {
+  border: 1px solid red;
+}
+
+#email_valid {
+  display: block;
+  font-size: 8pt;
+  margin: 0px auto;
+  outline: 0px solid #000ff0;
+  text-align: center;
+}
+
+#get_email_form button {
+  background: #4db8f0; /* Old browsers */
+  background: -moz-linear-gradient(top, #4db8f0 0%, #0958a7 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4db8f0), color-stop(100%,#0958a7)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #4db8f0 0%,#0958a7 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #4db8f0 0%,#0958a7 100%); /* Opera11.10+ */
+  background: -ms-linear-gradient(top, #4db8f0 0%,#0958a7 100%); /* IE10+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4db8f0', endColorstr='#0958a7',GradientType=0 ); /* IE6-9 */
+  background: linear-gradient(top, #4db8f0 0%,#0958a7 100%); /* W3C */
+  border: solid 1px #4db8f0;
+  border-radius: 3px;
+  color: #ffffff;
+  cursor: pointer;
+  display: block;
+  font-weight: bold;
+  width: 90px;
+  height: 26px;
+  margin: 0px auto;
+  padding: 0px 5px 0px 5px;
+}
+
+#get_email_form form .inputIcon {
+  position: absolute;
+  right: 10px;
+  top: 6px;
+}
+
+/* Слайдер */
+.rslides {
+  position: relative;
+  list-style: none !important;
+  overflow: hidden;
+  outline: 0px solid #000000;
+  width: 100%;
+  padding: 0;
+  margin: 0 auto;
+}
+
+.rslides p {
+  -webkit-backface-visibility: hidden;
+  position: absolute;
+  display: none;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+
+.rslides p:first-child {
+  position: relative;
+  display: block;
+  float: left;
+}
+
+.rslides img {
+  display: block;
+  height: auto;
+  float: left;
+  width: 100%;
+  border: 0;
+}
+
+.rslides_tabs {
+  list-style: none;
+  padding: 0;
+  background: transparent;
+  font-size: 12px;
+  list-style: none;
+  margin: 10px auto 0px auto;
+  max-width: 800px;
+  padding: 10px 0;
+  text-align: center;
+  width: 100%;
+}
+
+.rslides_tabs li {
+  display: inline;
+  float: none;
+  _float: left;
+  *float: left;
+  margin-right: 5px;
+}
+
+.rslides_tabs li:first-child {
+  margin-left: 0;
+}
+
+.rslides_nav {
+  z-index: 3;
+  position: absolute;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  top: 0;
+  left: 0;
+  display: block;
+  background: #fff; /* Fix for IE6-9 */
+  opacity: 0;
+  filter: alpha(opacity=1);
+  width: 48%;
+  text-indent: -9999px;
+  overflow: hidden;
+  height: 91%;
+}
+
+.rslides_nav.next {
+  left: auto;
+  right: 0;
+}
+
+.rslides_nav:focus {
+  outline: none;
+}
+
+.rslides_tabs a {
+  text-indent: -9999px;
+  overflow: hidden;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  background: #ccc;
+  background: rgba(0,0,0, .2);
+  display: inline-block;
+  margin: 0px 5px;
+  padding: 1px;
+  _display: block;
+  *display: block;
+  -webkit-box-shadow: inset 0 0 2px 0 rgba(0,0,0,.3);
+  -moz-box-shadow: inset 0 0 2px 0 rgba(0,0,0,.3);
+  box-shadow: inset 0 0 2px 0 rgba(0,0,0,.3);
+  width: 9px;
+  height: 9px;
+}
+
+.rslides_tabs a:hover {
+  background: #f0f0f0;
+}
+
+.rslides_here a,.rslides_here a:hover {
+  background: #222;
+  background: rgba(0,0,0, .8);
+}
+
+
+
+/* Продающая страница по Cisco */
+.cisco {
+  background-color: #f9f9f9; /* для светлого шаблона - #b2c2d1; #515151; #010101; */
+  font-stretch: normal;
+  -webkit-text-size-adjust: none;
+}
+
+.cisco_content {
+  background-color: #ffffff;
+  border: 1px outset #eeeeee;
+  border-radius: 8px;
+  display: block;
+  width: 910px;
+  max-width: 1280px;
+  height: auto;
+  min-height: 1024px;
+  margin: 20px auto;
+  padding: 20px;
+  position: relative;
+  vertical-align: top;
+  outline: 1px none;
+  -webkit-box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.cisco_h2_yellowfon {
+  background-color: #ffff99;
+  color: #000000;
+  font-family: Impact, Arial, Verdana, Tahoma, Helvetica, sans-serif;
+  font-size: 14pt; /* large; */
+  font-style: normal; /* italic - курсив, oblique - наклонное начертание */
+  font-variant: normal; /* small-caps - модифицирует все строчные символы как заглавные уменьшенного размера */
+  font-weight: normal; /* bold — полужирное начертание, bolder — жирное начертание; lighter — светлое начертание */
+  letter-spacing: 3px;
+  line-height: 1.5; /* расстояние между строками */
+  width: 40%;
+  margin: 10px auto -10px auto;
+  padding: 0px 0px 0px 0px;
+  text-decoration: none; /* оформление текста, подчёркнутый, зачеркнутый и пр. */
+  text-indent: 0px; /* Устанавливает величину отступа первой строки блока текста */
+  text-align: center; /* выравнивание по центру */
+}
+
+.cisco_h2_black {
+  font-size: 14pt;
+  font-family: cursive, 'Comic Sans MS';
+  margin: 20px auto 0px auto;
+  text-align: center; /* выравнивание по центру */
+}
+.cisco_h1_red {
+  color: #cc0000;
+  font-size: 30pt;
+  font-family: Arial, Verdana, Tahoma, Helvetica, sans-serif;
+  margin: 0px auto 0px auto;
+  text-align: center; /* выравнивание по центру */
+}
+
+.cisco_video {
+  background-color: transparent;
+  display: block;
+  margin: 20px auto;
+  padding: 5px 20px 5px 20px;
+  position: relative;
+  vertical-align: top;
+  outline: 0px solid #ff0000;
+  text-align: center;
+  z-index: 2;
+}
+
+.cisco_video iframe {
+  background: #ffffff;
+  /* border: 1px dotted #f0f0f0;
+  -webkit-box-shadow: 0px 8px 20px #808080;
+  -moz-box-shadow: 0px 8px 20px #808080;
+  box-shadow: 0px 8px 20px #808080; */
+}
+
+.cisco_slider {
+  width: 800px;
+  height: auto;
+  margin: 10px auto 0px auto;
+  outline: 0px solid #000077;
+  text-align: center;
+}
+
+.cisco_center, .cisco_image-center, .cisco_bold-center-text {
+  text-align: center;
+}
+
+.cisco_bold-center-text {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.cisco_count {
+  font-weight: bold;
+  font-size: 24px;
+  text-align: center;
+}
+
+.cisco_count s {
+  font-size: 32px;
+}
+
+.cisco_known, .cisco_learn, .cisco_bonuses, .cisco_garantiya, .cisco_all, .cisco_size {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.cisco_known {
+  color: teal;
+}
+
+.cisco_learn {
+  color: #ff8000;
+}
+
+.cisco_bonuses {
+  color: #008000;
+}
+.cisco_garantiya {
+  color: #990000;
+}
+.cisco_all {
+  color: #3399cc;
+}
+.cisco_size {
+  color: #008099;
+}
+
+.cisco_learn_table {
+  border: 0px none;
+  font-size: 18px;
+  font-weight: bold;
+  width: 800px;
+  margin: 10px auto;
+}
+.cisco_learn_table tr {
+  border: 0px none;
+}
+.cisco_learn_table td {
+  border: 0px none;
+  width: 50%;
+  padding: 5px 10px;
+}
+
+
+.cisco_bonuses_wrapper {
+  margin: 10px 30px 10px 30px;
+  width: 850px;
+  text-align: center;
+  text-indent: 0px;
+  outline: 0px solid #666666;
+}
+
+.cisco_bonus_image {
+  float: left;
+  width: 250px;
+  outline: 0px solid #0000cc;
+}
+
+.cisco_bonus_header {
+  float: right;
+  margin: 0px;
+  padding: 20px 0px;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
+  text-indent: 0px;
+  text-shadow: 0px 8px 20px #808080;
+  width: 600px;
+  outline: 0px solid #ff00cc;
+}
+
+.cisco_bonus_text {
+  float: right;
+  font-weight: bold;
+  font-size: 18px;
+  margin: 0px;
+  padding: 20px 40px 20px 40px;
+  text-align: left;
+  text-indent: 0px;
+  width: 520px;
+  outline: 0px solid #ff6600;
+}
+
+.cisco_garantiya_text {
+  background: url(../images/cisco/wave.png) repeat transparent;
+  border: 4px ridge #ff9999;
+  border-radius: 6px;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: cursive, 'Comic Sans MS';
+  float: none;
+  width: 640px;
+  height: auto;
+  margin: 10px auto 20px auto;
+  padding: 30px 20px 30px 20px;
+  -webkit-box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+  vertical-align: middle;
+  text-align: left;
+  z-index: 8;
+}
+
+.cisco_garantiya_image {
+  float: left;
+  padding: 0px 20px 0px 0px;
+}
+
+.cisco_zakaz {
+  background: transparent;
+  border: 4px dashed #ff0000;
+  border-radius: 6px;
+  float: none;
+  width: 770px;
+  height: auto;
+  margin: 20px auto;
+  padding: 10px 0px 0px 0px;
+  -webkit-box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  vertical-align: middle;
+  z-index: 6;
+}
+
+.cisco_order_link, .cisco_order_link:hover {
+  text-decoration: none;
+}
+
+/* Для блока Оформить заказ! справа */
+.cisco_rightzakaz {
+  background: #ffffee; /* Цвет фона */
+  border: 1px solid #666666; /* Параметры рамки */
+  border-radius: 6px;
+  display: block;
+  font-size: 16px;
+  right: 22px; /* Расстояние от правого края окна браузера */
+  top: 45%; /* Расстояние сверху */
+  margin: auto;
+  padding: 10px; /* Поля вокруг текста */
+  position: fixed; /* Фиксированное положение */
+  text-align: center;
+  writing-mode: tb-rl;
+  -webkit-box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+  z-index: 500;
+}
+
+.cisco_webmoney {
+  font-size: 24px;
+  display: block;
+  text-align: center;
+}
+.cisco_webmoney_button {
+  cursor:pointer;
+  font-famaly:Verdana, Helvetica, sans-serif!important;
+  padding: 0 10px;
+  height: 30px;
+  font-size: 18px !important;
+  border: 1px solid #538ec1 !important;
+  background: #a4cef4! important;
+  color: #fff !important;
+}
+.cisco_webmoney_button:hover {
+  border: 1px solid #7d9bf5 !important;
+  background: #add7fd! important;
+}
+
+.cisco_h1_otzyvy {
+  color: #ff8000;
+  font-size: 24pt;
+  font-family: cursive, 'Comic Sans MS';
+  margin: 0px auto 0px auto;
+  text-align: center; /* выравнивание по центру */
+}
+
+.cisco_otzyv {
+  background: #ffffee;
+  border: 1px solid #666666;
+  border-radius: 6px;
+  color: #000000;
+  display: block;
+  font-family: "Courier New", "Courier", monospace;
+  font-size: 12pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  width: 800px;
+  height: auto;
+  left: 0px;
+  top: 0px;
+  margin: 0px auto 0px auto;
+  padding: 20px;
+  line-height: 1.5;
+  outline: 0px none;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-indent: 0px;
+  vertical-align: top;
+  -webkit-box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+}
+
+.cisco_otzyv_h1 {
+  color: #ff8040;
+  font-size: 20pt;
+  font-family: cursive, 'Comic Sans MS';
+  margin: 0px auto 10px auto;
+  text-align: center; /* выравнивание по центру */
+}
+
+.cisco_otzyv_text {
+  text-indent: 0px;
+  text-align: left;
+  padding: 10px 20px 10px 20px;
+}
+
+.cisco_otzyv_podpis {
+  text-align: right;
+}
+
+.cisco_h1_download {
+  color: #008000;
+  font-size: 24px;
+  text-align: center;
+}
+.cisco_enter_name {
+  color: #ff6600;
+  font-size: 24px;
+  text-align: center;
+}
+
+.cisco_ps {
+  margin: 0px auto;
+  width: 88%;
+}
+
+
+.cisco_SR_form {
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  color: #000000;
+  font-family: Arial, Verdana, Tahoma, Helvetica, sans-serif;
+  font-size: 12pt;
+  font-weight: normal;
+  width: 260px;
+  margin: 20px auto 20px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.cisco_SR_form_input {
+  margin: 6px auto;
+}
+
+.cisco_SR_form input {
+  background-color: #ffffff;
+  color: #000000;
+  font-family: Arial, Verdana, Tahoma, Helvetica, sans-serif;
+  font-size: 12pt;
+  font-weight: normal;
+  width: 200px;
+  height: 18px;
+  margin: 0px auto;
+}
+
+.cisco_SR_form input.button {
+  background: rgb(254,252,234);
+  background: -moz-linear-gradient(top, rgba(254,252,234,1) 0%, rgba(241,218,24,1) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(254,252,234,1)), color-stop(100%,rgba(241,218,24,1)));
+  background: -webkit-linear-gradient(top, rgba(254,252,234,1) 0%,rgba(241,218,24,1) 100%);
+  background: -o-linear-gradient(top, rgba(254,252,234,1) 0%,rgba(241,218,24,1) 100%);
+  background: -ms-linear-gradient(top, rgba(254,252,234,1) 0%,rgba(241,218,24,1) 100%);
+  background: linear-gradient(to bottom, rgba(254,252,234,1) 0%,rgba(241,218,24,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefcea', endColorstr='#f1da36',GradientType=0 );
+  border: 2px outset #b59561;
+  border-radius: 24px;
+  color: #ffffff;
+  width: 200px;
+  height: 36px;
+  margin: 5px auto;
+  font-size: 16pt;
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-indent: 0px;
+  text-shadow: black 0px 0px 1px, black 1px 1px 2px, black 1px -1px 2px, black -1px 1px 2px, black -1px -1px 2px, white 3px 3px 4px, white 3px -3px 4px, white -3px 3px 4px, white -3px -3px 4px;
+}
+.cisco_SR_form input.button:hover {
+  background: rgb(241,218,54); /* Old browsers */
+  background: -moz-linear-gradient(top,  rgba(241,218,24,1) 0%, rgba(254,252,234,1) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(241,218,24,1)), color-stop(100%,rgba(254,252,234,1))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  rgba(241,218,24,1) 0%,rgba(254,252,234,1) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  rgba(241,218,24,1) 0%,rgba(254,252,234,1) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  rgba(241,218,24,1) 0%,rgba(254,252,234,1) 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  rgba(241,218,24,1) 0%,rgba(254,252,234,1) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1da36', endColorstr='#fefcea',GradientType=0 ); /* IE6-9 */
+  border: 2px inset #b59561;
+  color: #333300;
+  text-shadow: black 0px 0px 2px, white 1px 1px 2px, white 1px -1px 2px, white -1px 1px 2px, white -1px -1px 2px, white 2px 2px 3px, white 2px -2px 3px, white -2px 2px 3px, white -2px -2px 3px, white 3px 3px 4px, white 3px -3px 4px, white -3px 3px 4px, white -3px -3px 4px, white 4px 4px 5px, white -4px 4px 5px, white 4px -4px 5px, white -4px -4px 5px, yellow 5px 5px 6px, yellow -5px 5px 6px, yellow 5px -5px 6px, yellow -5px -5px 6px;
+}
+
+
+.cisco_zagolovok {
+  font-family: Arial, Verdana, Tahoma, Helvetica, sans-serif;
+  margin: 0px auto;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.cisco_payment_success {
+  color: #339900;
+  font-size: 24px;
+  font-weight: bold;
+}
+.cisco_payment_fail {
+  color: #774400;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.cisco_download_course {
+  color: #ff6600;
+  font-size: 24px;
+}
+
+.cisco_siski {
+  color: #ff0000;
+  font-size: 36px;
+}
+
+.cisco_or {
+  color: #000000;
+  font-size: 18px;
+}
+
+.cisco_steps {
+  color: #008000;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.cisco_technology {
+  color: #000000;
+  font-size: 24px;
+}
+
+.cisco_logo {
+  color: #cc0000;
+  font-size: 90px;
+  font-weight: bold;
+}
+
+.cisco_russian {
+  color: #3399cc;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.cisco_download_link {
+  background: #ffff99;
+  border: 2px solid #ff9900;
+  display: block;
+  margin: 0px auto;
+  padding: 5px;
+  width: 680px;
+  font-size: 14pt;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: underline;
+}
+.cisco_download_link .cisco_download_button {
+  background-image: url(../images/cisco/download.png);
+  background-repeat: no-repeat;
+  background-position: 0px 0px;
+  border: 0px none;
+  display: block;
+  width: 250px;
+  height: 60px;
+  margin: 0px auto;
+  text-align: center;
+}
+.cisco_download_link:hover .cisco_download_button {
+  background-position: 0px -60px;
+}
+
+.cisco_warning {
+  margin: 10px 0px 0px 0px;
+  color: #ff0000;
+  font-size: 12pt;
+  font-weight: bold;
+  text-align: center;
+}
+
+.cisco_support_link {
+  color: #000000;
+  font-family: Arial, Verdana, Tahoma, Helvetica, sans-serif;
+  font-size: 14px;
+  margin: 0px;
+  text-align: center;
+}
+
+
+.cisco_author {
+  font-family: Arial, Verdana, Tahoma, Helvetica, sans-serif;
+  font-size: 12px;
+  color: #333333;
+  text-align: center;
+  margin: 10px 0px 0px 0px;
+}
+.cisco_support {
+  color: #333333;
+  font-family: Arial, Verdana, Tahoma, Helvetica, sans-serif;
+  font-size: 12px;
+  margin: 0px 0px 10px 0px;
+  text-align: center;
+}
+
+.cisco_copyright_hr {
+  margin-top: 2px;
+  border: 1px solid #cccccc;
+  width: 90%;
+}

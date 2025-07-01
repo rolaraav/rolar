@@ -1,0 +1,1643 @@
+    //$res = $model->query("CREATE TABLE posts2 SELECT * FROM posts");
+    //$posts = $model->findAll();
+    //$post = $model->findOne(2);
+    //$data = $model->findBySql('SELECT * FROM '.$model->table.' WHERE title LIKE ?', ['%��%']);
+    //$data = $model->findBySql('SELECT * FROM posts ORDER BY id DESC LIMIT 2');
+    //$data = $model->findLike('����', 'title');
+    //debug($post);
+    //debug($data);
+    //debug($posts);
+
+
+/* ����������� PDO
+  $options = [
+    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    PDO::ATTR_EMULATE_PREPARES => false,
+  ];
+  $this->pdo = new PDO($db['dsn'], $db['user'], $db['pass'], $options);
+*/
+
+  // ����� ��� ���������� ������� � ���� ������ ��� ��������� ������
+/*  public function execute($sql, $params = []) {
+    self::$countSql++;
+    self::$queries[] = $sql;
+    $statement = $this->pdo->prepare($sql);
+    return $statement->execute($params);
+  }*/
+
+  // ����� ��� ������� ������ �� ���� ������
+/*  public function query($sql, $params = []) {
+    self::$countSql++;
+    self::$queries[] = $sql;
+    $statement = $this->pdo->prepare($sql);
+    $result = $statement->execute($params);
+    if ($result !== false) {
+      return $statement->fetchAll();
+    }
+    return [];
+  }*/
+
+  //public static $countSql = 0;
+  //public static $queries = [];
+
+
+    //var_dump(R::testConnection());
+
+// Create
+
+//$cat = R::dispense('category');
+//$cat->title = '��������� 3';
+//$id = R::store($cat);
+//var_dump($id);
+
+
+// Read
+//$cat = R::load('category',2);
+//echo $cat['title']; // $cat->title;
+
+// Update
+    /*$cat = R::load('category',3);
+    echo $cat->title.'<br>';
+    $cat->title = '��������� 3';
+    R::store($cat);
+    echo $cat->title.'<br>';*/
+
+//$cat = R::dispense('category');
+//$cat->title = '��������� 3';
+//$cat->id = 3;
+//R::store($cat);
+
+// Delete
+//$cat = R::load('category',2);
+//R::trash($cat);
+//R::wipe('category');
+
+//$cats = R::findAll('category', 'id > ?', [2]);
+//$cats = R::findAll('category', 'title LIKE ?', ['%cat%']);
+//$cats = R::findOne('category', 'id=2');
+//echo '<pre>';
+//print_r($cats);
+
+
+  public function renderLayout($vars = array()) {
+    if (is_array($vars)) {
+      extract($vars);// ������������ ���������� �� ������� ����������
+    }
+    if ($this->layout !== false) {
+      $this->render($vars, $this->layout);
+      //$file_layout = APP."/views/layouts/{$this->layout}.php";
+      //$file_layout = APP.'/views/layouts/'.$this->layout.'.php';
+      $file_layout = L.S.$this->layout.R;
+      //echo '$file_layout = '.$file_layout;
+      if(is_file($file_layout)) {
+        //$content = $this->getScript($content);
+        //$scripts = [];
+        //if(!empty($this->scripts[0])) {
+        //  $scripts = $this->scripts[0];
+        //}
+        ob_start(); // ������� ������� �����������
+        require $file_layout; // ���������� � ������� ���� �������
+        return ob_get_clean(); // ������� ������ �� ������
+      }
+      else {
+        //echo '<p>�� ������ ������ <b>'.$file_layout.'</b></p>';
+        throw new Exception('�� ������ ������ <b>'.$file_layout.'</b>', 404);
+      }
+    }
+  }
+
+
+  // ����� ��� ���������� ������������ ����
+  public function loadView($view_path = '', $vars = array()) {
+    //debug($vars);
+    if (is_array($vars)) {
+      extract($vars); // ������������ ���������� �� ������� ����������
+    }
+    $file_view = $this->getFileView($view_path); // ��������� ���� � ����� �������
+    //$file_view = V.S.$view_path.R; // ����������� ����� ���� �� ������� ����� � ������
+    //echo '$file_view = '.$file_view;
+    if(is_file($file_view)) {
+      ob_start(); // ������� ������� �����������
+      require $file_view; // ���������� ���� ����
+      return ob_get_clean(); // ������� ������ �� ������
+    }
+    else {
+      //echo '<p>�� ������ ��� <b>'.$file_view.'</b></p>';
+      throw new Exception('�� ������ ��� <b>'.$file_view.'</b>', 404);
+    }
+  }
+
+
+
+.blockhead {
+    /*background: transparent url(../images/templates/light/blockhead195x1.png) no-repeat 50% 0; */
+}
+
+.blocktitle {
+/*background: transparent url(../images/templates/light/blocktitle600x1.png) no-repeat 50% 0; */
+}
+
+
+
+
+
+<?php defined('A') or die('Access denied');
+
+$key = 1; //�����
+
+echo 'key = '.$key.'<br>';
+echo $key.' % 2 = '.($key % 2).'<br>';
+
+if($key & 1) { // $key % 2 === 0
+  echo 'key = '.$key.' - ������';
+}
+if($key % 2 === 0) {
+  echo 'key = '.$key.' - ������';
+}
+
+if (!empty($blocks)):
+  $half_blocks = ''; // ������ � ����������� �������
+  $last_block = ''; // ���������� ����
+  $current_clock = '';
+  $keys_count = 0;
+  $class = 'left'; // ���������� �������� ����� ����
+
+  $total_blocks = count($blocks); // ����� ���������� ������ �����
+echo '$total_blocks='.$total_blocks;
+  foreach($blocks as $key => $item) {
+
+    if ($key % 2 === 0) { // ������, ������ �������� ���������� � 0
+      if ($key == $total_blocks) { // ���� ����� �������� ����� ����� ������ ���������� ������, ��
+        $half_blocks = $half_blocks.$item; // �������� ���� ����� ��������� ����� (�� ���������� ��������) + ���� �� ������� ��������
+      }
+      $last_block = $item; // ��� ������ � �������� �������� ������������ ���������� ����
+    }
+
+    if ($key & 1) { // ��������, ������ �������� ���������� � 0
+      $half_blocks = $half_blocks.'
+<div class="half">
+  <div class="left_half">'.$last_block.'</div>
+  <div class="right_half">'.$item.'</div>
+<div class="clear"></div>
+</div>'; // ��� ������ � ������ �������� �������� ���� ����� ��������� ����� (�� ���������� ��������) +
+         // + ���� �� ���������� �������� + ���� �� ������� ��������
+      $last_block = ''; // ���������� ���� ����������
+    }
+
+  }
+
+
+    ?>
+
+
+
+
+
+
+
+
+<?php
+    if ($key % 2 === 0) {$class = 'left';} // ������, ������ �������� ���������� � 0
+    if ($key & 1) {$class = 'right';} // ��������, ������ �������� ���������� � 0
+ ?>
+  <div class="<?=$class;?>_half">
+    <?php echo $item;?>
+  </div>
+
+
+    <?php if($keys_count & 1): // �������� ?>
+
+    <?php endif; ?>
+
+
+    <?php $keys_count = $keys_count + 1; ?>
+
+
+  <?php endforeach; ?>
+<?php endif;?>
+
+
+
+<div class="block">
+<div class="blockhead">��������� �������</div>
+<div class="blockbody">
+
+<div class="links">
+<?php if($random_news): ?>
+<ul>
+  <?php foreach($random_news as $item): ?>
+    <li><a href="view_news.php?id=<?=$item['id'];?>"><?=$item['title'];?></a></li>
+  <?php endforeach; ?>
+</ul>
+<?php else: ?>
+  �������� ���� ���
+<?php endif; ?>
+</div>
+
+</div>
+</div>
+
+
+<div class="block">
+<div class="blockhead">��������� �������</div>
+<div class="blockbody">
+<ul id="news">
+<?php if($last_news):
+  echo "<ul id='news'>";
+  foreach($last_news as $item): ?>
+    <li><a href='view_news.php?id=<?=$item["id"];?>' target='_self'><?=$item["title"];?></a></li>
+  <?php endforeach;
+  echo "</ul>";
+else: echo "<p>�������� ���� ���.</p>";
+endif; ?>
+</div>
+</div>
+
+<div class="block">
+<div class="blockhead">���������� �������</div>
+<div class="blockbody">
+<?php if($popular_news):
+  echo "<ul id='news'>";
+  foreach($popular_news as $item): ?>
+    <li><a href='view_news.php?id=<?=$item["id"];?>' target='_self'><?=$item["title"];?></a></li>
+  <?php endforeach;
+  echo "</ul>";
+else: echo "<p>�������� ���� ���.</p>";
+endif; ?>
+</div>
+</div>
+
+
+
+<div class="block">
+<div class="blockhead">����� ��������</div>
+<div class="blockbody">
+
+<div class="archive">
+<?php if($archive):
+echo '<ul class="accordion">';
+$count_month = 1;
+$current_year = '';
+
+foreach($archive as $item):
+if ($current_year != $item['year']):
+if ($count_month > 1) {
+  echo '</ul></li>'; // ���� ������ �� ������
+}
+?>
+<li class="year"><a class="head" href="date.php?date=<?=$item['year'];?>"><?=$item['year'];?></a>
+<ul class="content">
+<?php
+$current_year = $item['year'];
+endif; ?>
+<li class="month"><a href="date.php?date=<?=$item['month'];?>"><?=$item['date_month'];?></a></li>
+<?php
+if ($count_month == $total_month) {
+  echo '</ul></li>';
+}
+$count_month = $count_month + 1; // ������� ��������
+endforeach;
+
+echo '</ul>';
+else: echo '����� ������';
+endif;
+?>
+</div>
+
+<br>
+<div class="archive">
+
+<ul class="accordion">
+
+<li class="year"><a class="head" href="date.php?date=2017">2017</a>
+<ul class="content">
+<li class="month"><a class="body" href="date.php?date=2017-10">�������</a></li>
+<li class="month"><a class="body" href="date.php?date=2017-02">�������</a></li>
+<li class="month"><a class="body" href="date.php?date=2017-01">������</a></li>
+</ul>
+</li>
+
+<li class="year"><a class="head" href="date.php?date=2016">2016</a>
+<ul class="content">
+<li class="month"><a class="body" href="date.php?date=2016-12">�������</a></li>
+<li class="month"><a class="body" href="date.php?date=2016-11">������</a></li>
+<li class="month"><a class="body" href="date.php?date=2016-10">�������</a></li>
+</ul>
+</li>
+
+<li class="year"><a class="head" href="date.php?date=2015">2015</a>
+<ul class="content">
+  <li class="month"><a class="body" href="date.php?date=2015-12">�������</a></li>
+  <li class="month"><a class="body" href="date.php?date=2015-02">�������</a></li>
+</ul>
+</li>
+
+</ul>
+</div>
+
+
+</div>
+</div>
+
+
+
+<div class="block">
+<div class="blockhead">�������� ������</div>
+<div class="blockbody">
+<?php if($ref_links):
+  echo "<ul id='news'>";
+  foreach($ref_links as $item): ?>
+    <li><a href='link.php?id=<?=$item["id"];?>' target='_blank'><?=$item["title"];?></a></li>
+  <?php endforeach;
+  echo "</ul>";
+else: echo "<p>���������� �� ������� �� �������, �.�. � ������� ��� �������.</p>";
+endif; ?>
+</div>
+</div>
+
+<div class="block">
+<div class="blockhead">���������� ������</div>
+<div class="blockbody">
+<?php if($partner_links):
+  echo "<ul id='news'>";
+  foreach($partner_links as $item): ?>
+    <li><a href='partner_link.php?id=<?=$item["id"];?>' target='_blank'><?=$item["title"];?></a></li>
+  <?php endforeach;
+  echo "</ul>";
+else: echo "<p>���������� �� ������� �� �������, �.�. � ������� ��� �������.</p>";
+endif; ?>
+</div>
+</div>
+
+<div class="block">
+<div class="blockhead">������� �����</div>
+<div class="blockbody">
+<?php if($internet_links):
+  echo "<ul id='news'>";
+  foreach($internet_links as $item): ?>
+    <li><a href='internet_link.php?id=<?=$item["id"];?>' target='_blank'><?=$item["title"];?></a></li>
+  <?php endforeach;
+  echo "</ul>";
+else: echo "<p>���������� �� ������� �� �������, �.�. � ������� ��� �������.</p>";
+endif; ?>
+</div>
+</div>
+
+
+
+
+    $breadcrumbs = '<nav class="breadcrumb" aria-label="breadcrumb">
+    <a class="breadcrumb-item" href="'.D.S.'" title="�������">�������</a>';
+
+  //<a class="breadcrumb-item" href="'.D.S.'news/" title="��������� ���������">��������� ���������</a>
+  //<a class="breadcrumb-item active" href="'.D.S.'news.php?rub=$rub" title="��������� �������">��������� �������</a>
+
+
+    if($breadcrumbs_array){
+      foreach($breadcrumbs_array as $alias => $title){
+        $breadcrumbs .= '<a class="breadcrumb-item" href="'.D.S.'category/'.$alias.'">'.$title.'</a>';
+      }
+    }
+    if($name){
+      $breadcrumbs .= '<a class="breadcrumb-item active" href="'.D.S.'category?cat=category_id" title="'.$name.'">'.$name.'</a>';
+    }
+    $breadcrumbs .= '</nav>';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="breadcrumb" aria-label="breadcrumb">
+<a class="breadcrumb-item" href="<?=D.S;?>" title="�������">�������</a>
+
+<?php if (empty($breadcrumbs_tail)): ?>
+  <a class="breadcrumb-item active" href="<?=D.S.$page['alias'];?>" title="<?=$page['title'];?>"><?=$page['title'];?></a>
+<?php else: ?>
+  <a class="breadcrumb-item" href="<?=D.S.$page['alias'];?>" title="<?=$page['title'];?>"><?=$page['title'];?></a>
+  <?=$breadcrumbs_tail;?>
+<?php endif; ?>
+
+</nav>
+
+
+
+  <br>
+  <nav class="breadcrumb" aria-label="breadcrumb">
+  <a class="breadcrumb-item" href="<?=D.S;?>" title="�������">�������</a>
+  <a class="breadcrumb-item" href="<?=D.S;?>news/" title="��������� ���������">��������� ���������</a>
+  <a class="breadcrumb-item active" href="news.php?rub=$rub" title="��������� �������">��������� �������</a>
+  </nav>
+
+
+
+
+
+      // определение шаблона вида по типу данных поста
+      switch($post['type']){
+        case(0):
+          $template_view = 'news';
+          $page_title = 'Новости';
+          $link_pattern = 'news';
+          break;
+        case(1):
+          $template_view = 'partner_product';
+          $page_title = 'Партнёрские продукты';
+          $link_pattern = 'partner_products';
+          break;
+        case(2):
+          $template_view = 'download';
+          $page_title = 'Закачки';
+          $link_pattern = 'downloads';
+          break;
+        case(3):
+          $template_view = 'good';
+          $page_title = 'Товары';
+          $link_pattern = 'goods';
+          break;
+        case(4):
+          $template_view = 'gallery';
+          $page_title = 'Галереи';
+          $link_pattern = 'galleries';
+          break;
+        case(5):
+          $template_view = 'album';
+          $page_title = 'Альбомы';
+          $link_pattern = 'albums';
+          break;
+        default:
+          $template_view = 'post';
+          $page_title = 'Посты';
+          $link_pattern = 'posts';
+      }
+
+
+<?php if($id == 0): ?>
+  <a class="breadcrumb-item active" href="<?=D.S.$alias;?>" title="<?=$title;?>"><?=$title;?></a>
+<?php endif; ?>
+
+<?php if(empty($alias)): ?>
+  <a class="breadcrumb-item active" href="<?=D.S.'post'.$id;?>" title="<?=$title;?>"><?=$title;?></a>
+<?php endif; ?>
+
+
+Код из формы регистрации
+
+<div class="form-group" id="registration_last_name">
+<label for="registration_last_name_field">Ваша фамилия<span class="red1">*</span>:</label>
+  <!--**** В текстовое поле (name="first_name" type="text") пользователь вводит свое имя/фамилию ***** -->
+  <input class="registration form-control" id="registration_last_name_field" maxlength="30" name="last_name" placeholder="Введите Вашу фамилию" size="15" title="Введите Вашу фамилию" type="text" value="<?=isset($_SESSION['registration']['last_name']) ? htmlspecialchars($_SESSION['registration']['last_name'], ENT_QUOTES) : '';?>">
+<div class="help-block"><span class="red1">*</span> Фамилия должна состоять не менее чем из 2-х символов и не более чем из 30</div>
+</div>
+
+
+<div class="form-group" id="registration_site">
+<label for="registration_site_field">Ваш сайт (если есть):</label>
+  <!-- Вводим сайт -->
+  <input class="registration form-control" id="registration_site_field" maxlength="100" name="site" placeholder="Введите Ваш сайт" size="15" title="Введите адрес Вашего сайта (если есть)" type="text" value="<?=isset($_SESSION['registration']['site']) ? $_SESSION['registration']['site'] : '';?>">
+</div>
+
+<div class="form-group" id="registration_avatar">
+<label for="registration_avatar_field">Ваш аватар:</label>
+  <!-- В переменную fupload отправится изображение, которое выбрал пользователь -->
+  <input accept="image/jpeg,image/png,image/gif" class="registration" id="registration_avatar_field" name="fupload" title="Выберите файл изображения для Вашего аватара" type="file" value="<?=isset($_SESSION['registration']['fupload']) ? $_SESSION['registration']['fupload'] : '';?>">
+<div class="help-block"><span class="red1">*</span> Изображение для аватара должено быть в формате <strong>JPG</strong>, <strong>GIF</strong> или <strong>PNG</strong> и размером не более 2 Мб</div>
+<div class="help-block">Если файл изображения не выбран, то будет установлен аватар по-умолчанию</div>
+</div>
+
+<div class="form-group" id="registration_birthday">
+<label for="registration_birthday_field">Ваша дата Рождения<br>(ГГГГ-ММ-ДД):</label>
+  <!-- Дата рождения -->
+  <input class="registration form-control" id="registration_birthday_field" maxlength="10" name="birthday" placeholder="1987-01-01" title="Укажите Вашу дату Рождения" type="text" value="<?=isset($_SESSION['registration']['birthday']) ? $_SESSION['registration']['birthday'] : '';?>">
+</div>
+
+<div class="form-group" id="registration_gender">
+<label for="registration_gender_field">Ваш пол:&nbsp;&nbsp;&nbsp;</label>
+  <!-- Пол -->
+  <label for="male"><input <?php echo $gender2; ?>id="male" name="gender" title="Укажите Ваш пол (если нужно)" type="radio" value="2"> мужской</label>&nbsp;&nbsp;&nbsp;<label for="female"><input <?php echo $gender1; ?>id="female" name="gender" title="Укажите Ваш пол (если нужно)" type="radio" value="1"> женский</label>&nbsp;&nbsp;&nbsp;<label for="nogender"><input <?php echo $gender0; ?>id="nogender" name="gender" title="Укажите Ваш пол (если нужно)" type="radio" value="0"> не указан</label>
+</div>
+
+
+
+
+
+  /* ===Авторизация старая=== */
+  public function authorization(){
+// удаляем лишние пробелы
+// заносим введенный пользователем логин в переменную $login, если он пустой, то уничтожаем переменную
+    $login = trim($_POST['login']); if ($login == '' or $login == 'Введите Ваш логин') {unset($login);}
+// заносим введенный пользователем пароль в переменную $password, если он пустой, то уничтожаем переменную
+    $password = trim($_POST['password']); if ($password == '' or $password == 'Введите Ваш пароль') {unset($password);}
+// если галочка выставлена, то $remember принимает значение 'on', а если не выставлена, то уничтожаем переменную
+    $remember = $_POST['remember']; if ($remember == '') {unset($remember);}
+    $entrance = $_POST['entrance']; if ($entrance == '') {unset($entrance);}
+
+// если пользователь не ввел логин и/или пароль, то выдаем ошибку и останавливаем скрипт
+    if (empty($login) or empty($password)) {
+      // если пусты поля логин/пароль
+      $_SESSION['authorization']['error'] = 'Поля логин/пароль должны быть заполнены!';
+    }
+    else {
+      // если логин и пароль введены, то обрабатываем их, чтобы теги и скрипты не работали, мало ли что люди могут ввести
+      $login = stripslashes($login);
+      $password = stripslashes($password);
+
+      $login = htmlspecialchars($login);
+      $password = htmlspecialchars($password);
+
+      /* проверка на подбор паролей (начало) */
+      $ip = getenv("HTTP_X_FORWARDED_FOR");
+      if (empty($ip) || $ip == 'unknown') {$ip = getenv("REMOTE_ADDR");} // извлекаем ip
+
+      // удаляем ip-адреса ошибавшихся при входе пользователей через 15 минут (15 * 60 сек = 900 сек)
+      $query = "DELETE FROM login_errors WHERE UNIX_TIMESTAMP() - UNIX_TIMESTAMP(date) > 900";
+      mysql_query($query) or die($error = "<p>Запрос на выборку данных из базы не прошёл. Напишите об этом администратору <a href='mailto:".ADMINEMAIL."' target='_blank'>".ADMINEMAIL."</a>.<br><strong>Код ошибки: </strong></p>".mysql_error());
+      // извлекаем из базы количество неудачных попыток входа за последние 15 у пользователя с данным ip
+      $query = "SELECT col FROM login_errors WHERE ip='$ip'";
+      $result_ip = mysql_query($query) or die($error = "<p>Запрос на выборку данных из базы не прошёл. Напишите об этом администратору <a href='mailto:".ADMINEMAIL."' target='_blank'>".ADMINEMAIL."</a>.<br><strong>Код ошибки: </strong></p>".mysql_error());
+      $row_ip = mysql_fetch_assoc($result_ip);
+      //если ошибок больше двух, т.е три, то выдаем сообщение.
+      if ($row_ip['col'] > 2) {
+        $_SESSION['authorization']['error'] = $_SESSION['authorization']['error']."Вы неверно ввели логин или пароль 3 раза подряд. Подождите 15 минут до следующей попытки.";
+      }
+
+      // если получены данные из полей логин/пароль
+      // шифруем пароль
+      $shifr_password = md5($password);
+      // для надежности добавим реверс
+      $shifr_password = strrev($shifr_password);
+      // можно добавить несколько своих символов по вкусу, например, вписав "b3p6f". Если этот пароль будут взламывать методом подбора у себя на сервере этой же md5, то явно ничего хорошего не выйдет. Но советую ставить другие символы, можно в начале строки или в середине
+      $shifr_password = "g96vnh5p".$shifr_password."xr3qf8a5";
+      // При этом необходимо увеличить длину поля password в базе. Зашифрованный пароль может получится гораздо большего размера
+
+      // извлекаем из базы все данные о пользователе с введенным логином и паролем
+      // мы дописали «AND activation='1'», то есть пользователь будет искаться только среди активированных. Желательно добавить это условие к другим подобным проверкам данных пользователя
+      // "SELECT id,first_name,login,password,avatar,email,site,date FROM users WHERE login='$login' AND password='$shifr_password' AND activation='1' LIMIT 1"
+      $query = "SELECT id,login,password FROM users WHERE login='$login' AND password='$shifr_password' AND activation='1' LIMIT 1";
+      $result_user = mysql_query($query) or die($error = "<p>Запрос на выборку данных из базы не прошёл. Напишите об этом администратору <a href='mailto:".ADMINEMAIL."' target='_blank'>".ADMINEMAIL."</a>.<br><strong>Код ошибки: </strong></p>".mysql_error());
+      // если логин и пароль совпадают, то запускаем пользователю сессию! Можете его поздравить, он вошёл!
+      if (mysql_num_rows($result_user) == 1) {
+        // дата последней авторизации пользователя
+        $date = date("Y-m-d H:i:s");
+        $query = "UPDATE users SET login_date='$date',ip='$ip' WHERE login='$login' AND password='$shifr_password' AND activation='1' LIMIT 1";
+        mysql_query($query) or die($error = "<p>Запрос на выборку данных из базы не прошёл. Напишите об этом администратору <a href='mailto:".ADMINEMAIL."' target='_blank'>".ADMINEMAIL."</a>.<br><strong>Код ошибки: </strong></p>".mysql_error());
+        // если авторизация успешна
+        $row_user = mysql_fetch_assoc($result_user);
+        // эти данные очень часто используются, вот их и будет "носить с собой" вошедший пользователь
+        $_SESSION['authorization']['id'] = $row_user['id'];
+        //$_SESSION['authorization']['first_name'] = $row_user['first_name'];
+        $_SESSION['authorization']['login'] = $row_user['login'];
+        $_SESSION['authorization']['password'] = $row_user['password'];
+        // $_SESSION['authorization']['avatar'] = $row_user['avatar'];
+        // $_SESSION['authorization']['email'] = $row_user['email'];
+        // $_SESSION['authorization']['site'] = $row_user['site'];
+        // $_SESSION['authorization']['date'] = $row_user['date'];
+        unset($_SESSION['authorization']['error']);
+        // далее мы запоминаем данные в куки, для последующего входа
+        // ВНИМАНИЕ!!! ДЕЛАЙТЕ ЭТО НА ВАШЕ УСМОТРЕНИЕ, ТАК КАК ДАННЫЕ ХРАНЯТСЯ В КУКАХ БЕЗ ШИФРОВКИ
+        // если пользователь хочет, чтобы его данные сохранились для последующего входа, то сохраняем в куках его браузера
+        if ($remember == on) {
+          // id пользователя, введённые логин и пароль сохраняем в куки, время жизни куки 60 сек * 60 мин * 24 часа * 365 дней = 31 536 000 сек = 1 год
+          setcookie("id", $row_user['id'], time()+31536000);
+          setcookie("login", $row_user['login'], time()+31536000);
+          setcookie("password", $password, time()+31536000);
+          setcookie("remember", $remember, time()+31536000);
+          // а также, если пользователь хочет входить на сайт автоматически
+          if ($entrance == on) {
+            setcookie("entrance", $entrance, time()+31536000);
+          }
+        }
+        else {
+          setcookie("id", "", time()+31536000);
+          setcookie("login", "", time()+31536000);
+          setcookie("password", "", time()+31536000);
+          setcookie("remember", "off", time()+31536000);
+        }
+        // сообщаем пользователю об удачном входе и перенаправляем его на главную страничку
+        $_SESSION['authorization']['result'] = "Вы зашли на сайт как <strong>$row_user[login]</strong>!";
+      }
+      // если пользователя с введенным логином и паролем не существует, делаем запись о том, что данный ip не смог войти
+      else {
+        $query = "SELECT ip FROM login_errors WHERE ip='$ip'";
+        $result_login_errors = mysql_query($query) or die($error = "<p>Запрос на выборку данных из базы не прошёл. Напишите об этом администратору <a href='mailto:".ADMINEMAIL."' target='_blank'>".ADMINEMAIL."</a>.<br><strong>Код ошибки: </strong></p>".mysql_error());
+        $row_login_errors = mysql_fetch_row($result_login_errors);
+        // проверяем, есть ли пользователь в таблице "login_errors"
+        if ($ip == $row_login_errors[0]) {
+          $query = "SELECT col FROM login_errors WHERE ip='$ip'";
+          $result_col = mysql_query($query) or die($error = "<p>Запрос на выборку данных из базы не прошёл. Напишите об этом администратору <a href='mailto:".ADMINEMAIL."' target='_blank'>".ADMINEMAIL."</a>.<br><strong>Код ошибки: </strong></p>".mysql_error());
+          $row_col = mysql_fetch_assoc($result_col);
+          // прибавляем ещё одну попытку неудачного входа
+          $col = $row_col['col'] + 1;
+          $query = "UPDATE login_errors SET col=$col,date=NOW() WHERE ip='$ip'";
+          mysql_query($query) or die($error = "<p>Запрос на выборку данных из базы не прошёл. Напишите об этом администратору <a href='mailto:".ADMINEMAIL."' target='_blank'>".ADMINEMAIL."</a>.<br><strong>Код ошибки: </strong></p>".mysql_error());
+        }
+        // если за последние 15 минут ошибок не было, то вставляем новую запись в таблицу "login_errors"
+        else {
+          $query = "INSERT INTO login_errors (ip,date,col) VALUES ('$ip',NOW(),'1')";
+          mysql_query($query) or die($error = "<p>Запрос на выборку данных из базы не прошёл. Напишите об этом администратору <a href='mailto:".ADMINEMAIL."' target='_blank'>".ADMINEMAIL."</a>.<br><strong>Код ошибки: </strong></p>".mysql_error());
+        }
+        // если неверен логин/пароль
+        $_SESSION['authorization']['error'] = $_SESSION['authorization']['error']."Логин/пароль введены неверно!";
+      }
+    }
+  }
+  /* ===Авторизация старая=== */
+
+
+    /* ===Регистрация  старая === */
+    public function registration_old(){
+      $error = ''; // флаг проверки пустых полей
+
+  // удаляем лишние пробелы, если пользователь не ввёл имя/фамилию или логин или пароль или e-mail или код, то выдаем ошибку
+      $first_name = trim($_POST['first_name']); if ($first_name == '') {unset($first_name); $error = $error.'<li>Не введено имя</li>';}
+      $last_name = trim($_POST['last_name']); if ($last_name == '') {unset($last_name); $error = $error.'<li>Не введена фамилия</li>';}
+      $login = trim($_POST['login']); if ($login == '') {unset($login); $error = $error.'<li>Не введён логин</li>';}
+      $password = trim($_POST['password']); if ($password == '') {unset($password); $error = $error.'<li>Не введён пароль</li>';}
+      $email = trim($_POST['email']); if ($email == '') {unset($email); $error = $error.'<li>Не введён адрес электронной почты</li>';}
+      $site = trim($_POST['site']); if ($site == '') {unset($site);}
+      $fupload = $_POST['fupload']; if ($fupload == '' or empty($fupload)) {unset($fupload);}
+      $birthday = $_POST['birthday']; if ($birthday == '') {$birthday = '0000-00-00';}
+      $gender = abs((int)$_POST['gender']); if ($gender == '') {$gender = 0;}
+      $code = $_POST['code']; if ($code == '') {unset($code); $error = $error.'<li>Не введён код с картинки</li>';}
+
+  // после сравнения проверяем, пускать ли пользователя дальше. Если он сделал ошибку в коде, то остановить скрипт
+      if ($code != "" and !chec_code($code)) {$error = $error.'<li>Неверно введён код с картинки</li>';}
+
+      /* Обработка полученных данных */
+  // если имя/фамилия, логин, пароль, е-майл введены, то обрабатываем их, чтобы теги и скрипты не работали, мало ли что люди могут ввести
+      $first_name = get_names($first_name);
+      $last_name = get_names($last_name);
+      $login = get_names($login);
+      $email = get_names($email);
+      $birthday = get_names($birthday);
+
+      $password = stripslashes($password);
+      $password = htmlspecialchars($password);
+
+  // проверяем введенные данные и чистим от ссылок, если это имя/фамилия, логин, е-майл, чистим неверный адрес сайта
+      $site = preg_replace('/([a-z0-9_\.\-])+\@(([a-z0-9\-])+\.)+([a-z0-9]{2,4})+/i', '', $site);
+
+  // проверяем длину имени/фамилии, логина и пароля
+      if (mb_strlen($first_name,"UTF-8") < 2 or mb_strlen($first_name,"UTF-8") > 30) {
+        $error = $error.'<li>Имя должно состоять не менее чем из 2-х символов и не более чем из 30!</li>';
+      }
+      if (mb_strlen($last_name,"UTF-8") < 2 or mb_strlen($last_name,"UTF-8") > 30) {
+        $error = $error.'<li>Фамилия должна состоять не менее чем из 2-х символов и не более чем из 30!</li>';
+      }
+      if (mb_strlen($login,"UTF-8") < 3 or mb_strlen($login,"UTF-8") > 15) {
+        $error = $error.'<li>Логин должен состоять не менее чем из 3-х символов и не более чем из 15!</li>';
+      }
+      if (mb_strlen($password,"UTF-8") < 3 or mb_strlen($password,"UTF-8") > 15) {
+        $error = $error.'<li>Пароль должен состоять не менее чем из 3-х символов и не более чем из 15!</li>';
+      }
+  // проверка е-mail адреса регулярными выражениями на корректность
+      if ($email != "" and !preg_match("/([a-z0-9_\.\-])+\@(([a-z0-9\-])+\.)+([a-z0-9]{2,4})+/i", $email)) {
+  // if (!preg_match("/[0-9a-z_]+@[0-9a-z_^\.]+\.[a-z]{2,3}/i", $email)) { - альтернативная проверка из примера
+        $error = $error.'<li>Адрес электронной почты введён неверно</li>';
+      }
+
+  // проверка сайта регулярными выражениями на корректность
+      if ($site != "" and !preg_match("/\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|$!:,.;]*[A-Z0-9+&@#\/%=~_|$]/i", $site)) {
+        $error = $error.'<li>Адрес сайта введён неверно</li>';
+      }
+
+  // проверка даты рождения регулярными выражениями
+      if ($birthday != "" and !preg_match("/(19|20)\d\d-((0[1-9]|1[012])-(0[1-9]|[12]\d)|(0[13-9]|1[012])-30|(0[13578]|1[02])-31)+/i", $birthday)) {
+        // проверка даты в формате YYYY-MM-DD: [0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])
+        // второй вариант (\d{4}\-\d{2}\-\d{2})
+        $error = $error.'<li>Дата Рождения введёна неверно</li>';
+      }
+
+  // если переменной $fupload не существует (пользователь не отправил изображение), то присваиваем ему заранее приготовленную картинку с надписью "нет аватара"
+      if (!isset($fupload) or empty($fupload) or $fupload == '') {
+        $avatar = DAVATAR;
+      }
+  // иначе - загружаем изображение пользователя
+      else {
+  //папка, куда будет загружаться начальная картинка и её сжатая копия
+        $path_to_90_directory = 'images/users/avatars/';
+        // проверка формата исходного изображения
+        if (preg_match('/[.](JPG)|(jpg)|(jpeg)|(JPEG)|(gif)|(GIF)|(png)|(PNG)$/',$_FILES['fupload']['name'])) {
+          $filename = $_FILES['fupload']['name'];
+          $source = $_FILES['fupload']['tmp_name'];
+          $target = $path_to_90_directory.$filename;
+          // загрузка оригинала в папку $path_to_90_directory
+          move_uploaded_file($source, $target);
+          // если оригинал был в формате gif, то создаем изображение в этом же формате. Необходимо для последующего сжатия
+          if(preg_match('/[.](GIF)|(gif)$/', $filename)) {
+            $im = imagecreatefromgif($path_to_90_directory.$filename);
+          }
+          // если оригинал был в формате png, то создаем изображение в этом же формате. Необходимо для последующего сжатия
+          if(preg_match('/[.](PNG)|(png)$/', $filename)) {
+            $im = imagecreatefrompng($path_to_90_directory.$filename);
+          }
+          // если оригинал был в формате jpg, то создаем изображение в этом же формате. Необходимо для последующего сжатия
+          if(preg_match('/[.](JPG)|(jpg)|(jpeg)|(JPEG)$/', $filename)) {
+            $im = imagecreatefromjpeg($path_to_90_directory.$filename);
+          }
+          // СОЗДАНИЕ КВАДРАТНОГО ИЗОБРАЖЕНИЯ И ЕГО ПОСЛЕДУЮЩЕЕ СЖАТИЕ ВЗЯТО С САЙТА www.codenet.ru
+          // Создание квадрата 64x64
+          // dest - результирующее изображение
+          // w - ширина изображения
+          // ratio - коэффициент пропорциональности
+          $w = 64; // квадратная 64x64. Можно поставить и другой размер
+          // создаём исходное изображение на основе исходного файла и определяем его размеры
+          $w_src = imagesx($im); // вычисляем ширину
+          $h_src = imagesy($im); // вычисляем высоту изображения
+          // создаём пустую квадратную картинку важно именно truecolor, иначе будем иметь 8-битный результат
+          $dest = imagecreatetruecolor($w,$w);
+          // вырезаем квадратную серединку по x, если фото горизонтальное
+          if ($w_src > $h_src) {
+            imagecopyresampled($dest, $im, 0, 0, round((max($w_src,$h_src)-min($w_src,$h_src))/2), 0, $w, $w, min($w_src,$h_src), min($w_src,$h_src));
+          }
+          // вырезаем квадратную верхушку по y, если фото вертикальное (хотя можно тоже серединку)
+          if ($w_src<$h_src) {
+            imagecopyresampled($dest, $im, 0, 0, 0, 0, $w, $w, min($w_src,$h_src), min($w_src,$h_src));
+          }
+          // квадратная картинка масштабируется без вырезок
+          if ($w_src == $h_src) {
+            imagecopyresampled($dest, $im, 0, 0, 0, 0, $w, $w, $w_src, $w_src);
+          }
+          // вычисляем время в настоящий момент
+          $date = time();
+          // сохраняем изображение формата jpg в нужную папку, именем будет текущее время, чтобы у аватаров не было одинаковых имен
+          imagejpeg($dest, $path_to_90_directory.$date.".jpg");
+          // почему именно jpg? Он занимает очень мало места + уничтожается анимирование gif изображения, которое отвлекает пользователя. Не очень приятно читать его комментарий, когда краем глаза замечаешь какое-то движение
+          // заносим в переменную путь до аватара
+          $avatar = $path_to_90_directory.$date.".jpg";
+          // удаляем оригинал загруженного изображения, он нам больше не нужен. Задачей было - получить миниатюру
+          $delfull = $path_to_90_directory.$filename;
+          unlink($delfull);
+        }
+        else {
+          // в случае несоответствия формата, выдаем соответствующее сообщение
+          $error = $error.'<li>Изображение для аватара должно быть в формате <strong>JPG</strong>, <strong>GIF</strong> или <strong>PNG</strong> и размером не более 2 Мб.</li>';
+        }
+      }
+  // конец процесса загрузки и присвоения переменной $avatar адреса загруженной авы
+
+  // шифруем пароль
+      $shifr_password = md5($password);
+  // для надежности добавим реверс
+      $shifr_password = strrev($shifr_password);
+  // можно добавить несколько своих символов по вкусу, например, вписав "b3p6f". Если этот пароль будут взламывать методом подбора у себя на сервере этой же md5, то явно ничего хорошего не выйдет. Но советую ставить другие символы, можно в начале строки или в середине
+      $shifr_password = "g96vnh5p".$shifr_password."xr3qf8a5";
+  // При этом необходимо увеличить длину поля password в базе. Зашифрованный пароль может получится гораздо большего размера
+
+  // Способ авторизации, активация, путь к фотографии, ID в соц. сетях
+      $method = 0; $activ = 0; //$photo = ""; $social_id = "";
+
+  // дата регистрации пользователя
+      $date = date("Y-m-d H:i:s");
+
+  // Статус пользователя: 0 - не существует/удалён, 1 - заблокирован, 2 - подписчик, 3 - обычный, 4 - модератор, 5 - администратор
+      $status = 3;
+
+  //ip-адрес пользователя
+      $ip = getenv("HTTP_X_FORWARDED_FOR");
+      if (empty($ip) || $ip == 'unknown') {$ip = getenv("REMOTE_ADDR");} // извлекаем ip
+
+  // Тип письма: 0 - обычное текстовое письмо, 1 - html-письмо
+      $letter_type = 0;
+
+      $_SESSION['registration']['first_name'] = $first_name;
+      $_SESSION['registration']['last_name'] = $last_name;
+      $_SESSION['registration']['login'] = $login;
+  // $_SESSION['registration']['password'] = $password; // пароль запоминать не нужно
+      $_SESSION['registration']['email'] = $email;
+      $_SESSION['registration']['site'] = $site;
+      $_SESSION['registration']['fupload'] = $fupload;
+      $_SESSION['registration']['birthday'] = $birthday;
+      $_SESSION['registration']['gender'] = $gender;
+  // $_SESSION['registration']['code'] = $code; // код запоминать не нужно
+
+  // если все поля заполнены и ошибок нет
+      if(empty($error)){
+        // проверка на существование пользователя с таким же логином
+        $query = "SELECT id FROM users WHERE login='$login' AND method='0' AND status>'0' LIMIT 1";
+        $result_login = mysql_query($query) or die($error = "<p>Запрос на выборку данных из базы не прошёл. Напишите об этом администратору <a href='mailto:".ADMINEMAIL."' target='_blank'>".ADMINEMAIL."</a>.<br><strong>Код ошибки: </strong></p>".mysql_error());
+        $row = mysql_num_rows($result_login); // 1 - такой юзер есть, 0 - нет
+        if ($row > 0) {
+          // если совпадение найдено и пользователь (id) не пустой, то выдаём ошибку
+          $_SESSION['registration_result'] = "<div class='error'>Пользователь с таким логином уже зарегистрирован на сайте. Введите другой логин.</div>";
+          // $_SESSION['registration']['login'] = ""; // сбрасываем логин
+        }
+        else {
+          // если такого логина нет, то сохраняем данные
+          $query = "INSERT INTO users (first_name, last_name, login, password, avatar, email, site, activation, status, method, reg_date, login_date, birthday, gender, ip, letter_type) VALUES ('$first_name','$last_name','$login','$shifr_password','$avatar','$email','$site','$activ','$status','$method','$date','$date','$birthday','$gender','$ip','$letter_type')";
+          $result_save_user = mysql_query($query) or die($error = "<p>Запрос на выборку данных из базы не прошёл. Напишите об этом администратору <a href='mailto:".ADMINEMAIL."' target='_blank'>".ADMINEMAIL."</a>.<br><strong>Код ошибки: </strong></p>".mysql_error());
+          if (mysql_affected_rows() > 0) { // если запись добавлена
+            // получаем идентификатор пользователя по значению id последней вставленной записи.
+            // Благодаря ему у нас и будет уникальный код активации, ведь двух одинаковых идентификаторов быть не может
+            //$_SESSION['authorization']['id'] = mysql_insert_id();
+            //$_SESSION['authorization']['first_name'] = $first_name;
+            //$_SESSION['authorization']['login'] = $login;
+            //$_SESSION['authorization']['password'] = $password;
+            //$_SESSION['authorization']['avatar'] = $avatar;
+            //$_SESSION['authorization']['email'] = $email;
+            //$_SESSION['authorization']['site'] = $site;
+            //$_SESSION['authorization']['date'] = $date;
+            // код активации аккаунта. Зашифруем через функцию md5 идентификатор и логин. Такое сочетание пользователь вряд ли сможет подобрать вручную через адресную строку
+            $activation = md5($login)."wf2cqt1d".md5(mysql_insert_id());
+            // тема сообщения
+            $subject = "Подтверждение регистрации на сайте rolar.ru";
+            // содержание сообщения
+            $message_for_mail = "Здравствуйте, $first_name! Благодарим Вас за регистрацию на сайте ".DOMEN.".\n
+  Ваш логин: ".$login."\n
+  Перейдите по ссылке, чтобы активировать Ваш аккаунт:\n
+  ".DOMEN."activation.php?login=".$login."&code=".$activation."\n
+  С уважением,\n
+      Администрация сайта rolar.ru.";
+            // отправляем сообщение
+            //mail($email, $subject, $message_for_mail, "content-type: text/plane; charset=utf-8\r\n");
+            $emails = get_one_email($email,$first_name,0);
+            $mail = new Mail(); // инициализируем класс
+            $mail->Mail($emails, $subject, $message_for_mail);
+            // говорим об отправленном письме пользователю
+            $_SESSION['registration_result'] = "<div class='success'>Регистрация прошла успешно.<br><br>$first_name, благодарим Вас за регистрацию на сайте rolar.ru!<br><br>Для подтверждения регистрации Вам на e-mail было выслано письмо со специальной cсылкой. Откройте письмо с темой \"Подтверждение регистрации на сайте rolar.ru\" и перейдите по этой ссылке - и тогда Ваш аккаунт будет зарегистрирован.<br><br>Внимание! Ссылка действительна 24 часа!</div>";
+            $_SESSION['registration_success'] = true; // создаём метку об успешной регистрации
+            // выводим скрипт перенаправления на главную страницу
+            $_SESSION['subscription_form'] = "<script language=\"javascript\" type=\"text/javascript\">setTimeout(\"document.location.href='".DOMEN."'\", 60000);</script>";
+          }
+          else {
+            $_SESSION['registration_result'] = "<div class='error'>Произошла ошибка! Вы не зарегистрированы.</div>";
+          }
+        }
+      }
+      else {
+        // если обязательные поля не заполнены или заполнены с ошибками
+        $_SESSION['registration_result'] = "<div class='error'>В ходе заполнения формы регистрации были допущены следующие ошибки: <ul>$error</ul></div>";
+      }
+    }
+    /* ===Регистрация старая=== */
+
+
+
+
+
+
+          $data = $_POST;
+          $user->load($data); // получаем данные (записываем их в массив $this->attributes), которые ввёл пользователь при регистрации, из массива $_POST
+          //debug($user);
+
+
+
+          if(!$user->validate($data) || !$user->check_unique_login()) {
+            $user->getErrors();
+            $_SESSION['registration'] = $data;
+            redirect();
+          }
+          //debug($user);
+          //debug($_POST);
+          $user->attributes['password'] = password_hash($user->attributes['password'], PASSWORD_DEFAULT);
+
+          if ($user->add_user()){
+            $_SESSION['success'] = 'Вы успешно зарегистрированы!';
+          }
+          else {
+            $SESSION['errors'] = 'Ошибка! Попробуйте позже!';
+          }
+
+
+
+
+    //$site = isset($_POST['site']) ? trim($_POST['site']) : null;
+
+    //$fupload = isset($_POST['fupload']) ? $_POST['fupload'] : null;
+
+    //$birthday = isset($_POST['birthday']) ? $_POST['birthday'] : '0000-00-00';
+
+    //$gender = isset($_POST['gender']) ? abs((int)$_POST['gender']) : 0;
+
+
+
+  if (isset($_SESSION['errors'])): ?>
+    <div class="alert alert-danger">
+      <?php echo $_SESSION['errors']; unset($_SESSION['errors']); ?>
+    </div>
+<?php endif;
+  if (isset($_SESSION['success'])): ?>
+    <div class="alert alert-success">
+      <?php echo $_SESSION['success']; unset($_SESSION['success']); ?>
+    </div>
+  <?php endif;
+
+
+    $result_user = $this->select(['id','login','email'],'users', $where, $operand,false,false, 1);
+    //debug($result_user);
+    // "SELECT id,login,email FROM users WHERE login='$login' AND email='$email' AND method='0' AND status>'0' LIMIT 1";
+    if ((int)$result_user > 0){ // 1 - такой юзер есть, 0 - нет
+      // если совпадение найдено и пользователь (id) не пустой, то выдаём ошибку
+      if ($result_user['login'] == $this->attributes['login']) {
+        $this->errors['unique'][] = 'Пользователь с таким логином уже зарегистрирован на сайте. Введите другой логин.';
+        $_SESSION['registration_result'] = '<div class="error">Пользователь с таким логином уже зарегистрирован на сайте. Введите другой логин.</div>';
+      }
+      if((!empty($email)) and ($result_user['email'] == $this->attributes['email'])){
+        $this->errors['unique'][] = 'Пользователь с таким email уже зарегистрирован на сайте. Введите другой email.';
+        $_SESSION['registration_result'] = '<div class="error">Пользователь с таким email уже зарегистрирован на сайте. Введите другой email.</div>';
+      }
+      return false;
+    }
+
+
+
+
+
+// обновление капчи
+$("#codegen_link").click(function(e) {
+    e.preventDefault();
+    //var link = $(this);
+    $("#codegen_img").src='core/vendors/codegen.php?'+Math.random();
+    //codegen_img.attr('src','core/vendors/codegen.php');
+    var registration_code_field = $('registration_code_field');
+    registration_code_field.focus();
+    registration_code_field.attr('placeholder','');
+});
+
+
+
+
+
+// если переменной $fupload не существует (пользователь не отправил изображение), то присваиваем ему заранее приготовленную картинку с надписью "нет аватара"
+    if (!isset($fupload) or empty($fupload) or $fupload == '') {
+      $avatar = DAVATAR;
+    }
+// иначе - загружаем изображение пользователя
+    else {
+//папка, куда будет загружаться начальная картинка и её сжатая копия
+      $path_to_90_directory = 'images/users/avatars/';
+      // проверка формата исходного изображения
+      if (preg_match('/[.](JPG)|(jpg)|(jpeg)|(JPEG)|(gif)|(GIF)|(png)|(PNG)$/',$_FILES['fupload']['name'])) {
+        $filename = $_FILES['fupload']['name'];
+        $source = $_FILES['fupload']['tmp_name'];
+        $target = $path_to_90_directory.$filename;
+        // загрузка оригинала в папку $path_to_90_directory
+        move_uploaded_file($source, $target);
+        // если оригинал был в формате gif, то создаем изображение в этом же формате. Необходимо для последующего сжатия
+        if(preg_match('/[.](GIF)|(gif)$/', $filename)) {
+          $im = imagecreatefromgif($path_to_90_directory.$filename);
+        }
+        // если оригинал был в формате png, то создаем изображение в этом же формате. Необходимо для последующего сжатия
+        if(preg_match('/[.](PNG)|(png)$/', $filename)) {
+          $im = imagecreatefrompng($path_to_90_directory.$filename);
+        }
+        // если оригинал был в формате jpg, то создаем изображение в этом же формате. Необходимо для последующего сжатия
+        if(preg_match('/[.](JPG)|(jpg)|(jpeg)|(JPEG)$/', $filename)) {
+          $im = imagecreatefromjpeg($path_to_90_directory.$filename);
+        }
+        // СОЗДАНИЕ КВАДРАТНОГО ИЗОБРАЖЕНИЯ И ЕГО ПОСЛЕДУЮЩЕЕ СЖАТИЕ ВЗЯТО С САЙТА www.codenet.ru
+        // Создание квадрата 64x64
+        // dest - результирующее изображение
+        // w - ширина изображения
+        // ratio - коэффициент пропорциональности
+        $w = 64; // квадратная 64x64. Можно поставить и другой размер
+        // создаём исходное изображение на основе исходного файла и определяем его размеры
+        $w_src = imagesx($im); // вычисляем ширину
+        $h_src = imagesy($im); // вычисляем высоту изображения
+        // создаём пустую квадратную картинку важно именно truecolor, иначе будем иметь 8-битный результат
+        $dest = imagecreatetruecolor($w,$w);
+        // вырезаем квадратную серединку по x, если фото горизонтальное
+        if ($w_src > $h_src) {
+          imagecopyresampled($dest, $im, 0, 0, round((max($w_src,$h_src)-min($w_src,$h_src))/2), 0, $w, $w, min($w_src,$h_src), min($w_src,$h_src));
+        }
+        // вырезаем квадратную верхушку по y, если фото вертикальное (хотя можно тоже серединку)
+        if ($w_src<$h_src) {
+          imagecopyresampled($dest, $im, 0, 0, 0, 0, $w, $w, min($w_src,$h_src), min($w_src,$h_src));
+        }
+        // квадратная картинка масштабируется без вырезок
+        if ($w_src == $h_src) {
+          imagecopyresampled($dest, $im, 0, 0, 0, 0, $w, $w, $w_src, $w_src);
+        }
+        // вычисляем время в настоящий момент
+        $date = time();
+        // сохраняем изображение формата jpg в нужную папку, именем будет текущее время, чтобы у аватаров не было одинаковых имен
+        imagejpeg($dest, $path_to_90_directory.$date.".jpg");
+        // почему именно jpg? Он занимает очень мало места + уничтожается анимирование gif изображения, которое отвлекает пользователя. Не очень приятно читать его комментарий, когда краем глаза замечаешь какое-то движение
+        // заносим в переменную путь до аватара
+        $avatar = $path_to_90_directory.$date.".jpg";
+        // удаляем оригинал загруженного изображения, он нам больше не нужен. Задачей было - получить миниатюру
+        $delfull = $path_to_90_directory.$filename;
+        unlink($delfull);
+      }
+      else {
+        // в случае несоответствия формата, выдаем соответствующее сообщение
+        $error = $error.'<li>Изображение для аватара должно быть в формате <strong>JPG</strong>, <strong>GIF</strong> или <strong>PNG</strong> и размером не более 2 Мб.</li>';
+      }
+    }
+// конец процесса загрузки и присвоения переменной $avatar адреса загруженной авы
+
+
+
+
+    if (!isset($user['login'])) { // если пользователь не авторизован
+      // $reg_user = registration_user(); // получаем массив с регистрационными данными пользователя
+      $gender0 = CHECK;
+      $gender1 = '';
+      $gender2 = '';
+      if (isset($_SESSION['registration']['gender'])) {
+        if ($_SESSION['registration']['gender'] == 1) {
+          $gender0 = '';
+          $gender1 = CHECK;
+          $gender2 = '';
+        }
+        elseif ($_SESSION['registration']['gender'] == 2) {
+          $gender0 = '';
+          $gender1 = '';
+          $gender2 = CHECK;
+        }
+        else {
+          $gender0 = CHECK;
+          $gender1 = '';
+          $gender2 = '';
+        }
+      }
+    }
+
+
+          $fupload = $_POST['fupload']; if ($fupload == '' or empty($fupload)) {unset($fupload);}
+
+          $gender = abs((int)$_POST['gender']); if ($gender == '') {$gender = 0;}
+          $error = '';
+          $code = $_POST['code']; if ($code == '') {unset($code); $error = $error.'<li>Не введён код с картинки</li>';}
+
+          // после сравнения проверяем, пускать ли пользователя дальше. Если он сделал ошибку в коде, то остановить скрипт
+          if ($data['code'] != '' and !check_code($data['code'])) {$user->errors = $user->errors.'<li>Неверно введён код с картинки</li>';}
+
+
+
+
+              $entrance_check = ''; // значение по умолчанию
+              // если в COOKIE есть переменные "запомнить меня" и "автоматический вход" и они имеют значение "on" (пользователь нажал на чекбоксы "Запомнить меня" и "Автоматический вход" при прошлом входе на сайт)
+              if (isset($_COOKIE['entrance'])) {
+                if ($_COOKIE['remember'] == 'on' and $_COOKIE['entrance'] == 'on') {
+                  // то вставляем в форму ее значение. При этом пользователю отображается, что его логин уже вписан в нужную графу
+                  $entrance_check = CHECK;
+                }
+                else {
+                  $entrance_check = '';
+                }
+              }
+
+                  $entrance_check = ''; // значение по умолчанию
+                  // если в COOKIE есть переменные "запомнить меня" и "автоматический вход" и они имеют значение "on" (пользователь нажал на чекбоксы "Запомнить меня" и "Автоматический вход" при прошлом входе на сайт)
+                  if (isset($_COOKIE['entrance'])) {
+                    if ($_COOKIE['remember'] == 'on' and $_COOKIE['entrance'] == 'on') {
+                      // то вставляем в форму ее значение. При этом пользователю отображается, что его логин уже вписан в нужную графу
+                      $entrance_check = CHECK;
+                    }
+                    else {
+                      $entrance_check = '';
+                    }
+                  }
+
+      // если при входе пользователя кука "Запомнить меня" установлена в значение 'off' (не запоминать)
+      if (isset($_COOKIE['remember'])) {
+
+
+        if ($_COOKIE['remember'] == 'on') {
+
+        }
+      }
+      else { // иначе чистим все куки и ставим куку remember в значение off
+        setcookie('remember', 'off', time() + 31536000);
+      }
+
+
+      if(isset($_SESSION['user'])) {
+        // если пользователь авторизовался
+        echo '<p>Добро пожаловать, '.$user['login'].'</p>';
+        exit();
+      }
+      else {
+        // если авторизация неудачна
+        echo 'user']['error'];
+        unset($_SESSION['user']);
+        exit();
+      }
+    }
+
+
+
+        if (isset($status)) {
+          if (isset($activation)) {
+            if ($status_operand == '>') {
+              if (($item['activation'] == $activation) and ($item['status'] > $status)) {
+                $array[$key] = $item;
+              }
+            }
+            else {
+              if (($item['activation'] == $activation) and ($item['status'] == $status)) {
+                $array[$key] = $item;
+              }
+            }
+          }
+          else {
+            if ($status_operand == '>') {
+              if ($item['status'] > $status) {
+                $array[$key] = $item;
+              }
+            }
+            else {
+              if ($item['status'] == $status) {
+                $array[$key] = $item;
+              }
+            }
+          }
+        }
+        else {
+          if (isset($activation)) {
+            if ($item['activation'] == $activation) {
+              $array[$key] = $item;
+            }
+          }
+          else {
+            $array[$key] = $item;
+          }
+        }
+      }
+
+
+
+
+          $query = "SELECT avatar FROM users WHERE activation='0' AND UNIX_TIMESTAMP() - UNIX_TIMESTAMP(reg_date) > 86400";
+          $result = mysql_query($query) or die($error = "<p>Запрос на выборку данных из базы не прошёл. Напишите об этом администратору <a href='mailto:".ADMINEMAIL."' target='_blank'>".ADMINEMAIL."</a>.<br><strong>Код ошибки: </strong></p>".mysql_error());
+          while($row = mysql_fetch_assoc($result)){
+            // удаляем аватары в цикле; если аватар стандартный, то ничего не делаем
+            //print_array($avatars);
+            if ($row['avatar'] == DAVATAR) {
+              $a = "Ничего не делать";
+            }
+            // удаляем файл, если аватар нестандартный
+            else {
+              unlink($row['avatar']);
+            }
+          }
+
+
+
+
+                  if(isset($item['childs'])) {
+                    foreach($item['childs'] as $key=>$chield) {
+                      $sitemap_url[] = D.$item['alias'];
+
+                      if(isset($item['professions'])) {
+                        foreach($item['professions'] as $k=>$i) {
+                          $sitemap_url[] = D.'education/id/'.$k;
+                        }
+                      }
+                    }
+
+
+
+    <ol class="sitemap">
+        <li><a href="<?=DOMEN;?>" target="_self" id="home">Главная</a></li>
+        <!-- Вывод в цикле всех страниц (начало) -->
+      <?php if($pages_for_menu):
+        foreach($pages_for_menu as $item):
+          $sitemap_url[] = DOMEN.$item['page'].".php"; ?>
+            <li><a href="<?=$item['page']?>.php" target='_self'><?=$item['title']?></a>
+          <?php if($item['page'] == 'news'):
+          if($rub_news):
+            echo "<ol>";
+            foreach($rub_news as $rub):
+              $sitemap_url[] = DOMEN."news.php?rub=".$rub['id']; ?>
+                <li><a href='news.php?rub=<?=$rub['id'];?>' target='_self'><?=$rub['title'];?></a>
+              <?php $post_title = get_post_title(0,$rub['id']); // echo $post_title;
+              if($post_title) {echo "<ol>$post_title</ol>";}
+              echo "</li>";
+            endforeach;
+            echo "</ol>";
+          endif;
+        endif;
+          if($item['page'] == 'partner_products'):
+            if($partners):
+              echo "<ol>";
+              foreach($partners as $partner):
+                $sitemap_url[] = DOMEN."partner_products.php?partner=".$partner['id']; ?>
+                  <li><a href='partner_products.php?partner=<?=$partner['id'];?>' target='_self'><?=$partner['title'];?></a>
+                <?php $post_title = get_post_title(1,$partner['id']); // echo $post_title;
+                if($post_title) {echo "<ol>$post_title</ol>";}
+                echo "</li>";
+              endforeach;
+              echo "</ol>";
+            endif;
+          endif;
+          if($item['page'] == 'downloads'):
+            if($cat_downloads):
+              echo "<ol>";
+              foreach($cat_downloads as $cat):
+                $sitemap_url[] = DOMEN."downloads.php?cat=".$cat['id']; ?>
+                  <li><a href='downloads.php?cat=<?=$cat['id'];?>' target='_self'><?=$cat['title'];?></a>
+                <?php $post_title = get_post_title(2,$cat['id']); // echo $post_title;
+                if($post_title) {echo "<ol>$post_title</ol>";}
+                echo "</li>";
+              endforeach;
+              echo "</ol>";
+            endif;
+          endif;
+          if($item['page'] == 'goods'):
+            $post_title = get_post_title(3); // echo $post_title;
+            if($post_title) {echo "<ol>$post_title</ol>";}
+          endif;
+          if($item['page'] == 'creativity'):
+            echo "<ol>";
+            $sitemap_url[] = DOMEN."verses.php";
+            $sitemap_url[] = DOMEN."songs.php"; ?>
+              <li><a href='verses.php' target='_self'>Стихи</a></li>
+              <li><a href='songs.php' target='_self'>Песни</a></li>
+            <?php echo "</ol>";
+          endif;
+          if($item['page'] == 'interesting'):
+            echo "<ol>";
+            $sitemap_url[] = DOMEN."music.php"; ?>
+              <li><a href='music.php' target='_self'>Музыка</a>
+                <?php $post_title = get_post_title(5,1); // echo $post_title;
+                if($post_title) {echo "<ol>$post_title</ol>";} ?>
+              </li>
+            <?php $sitemap_url[] = DOMEN."films.php"; ?>
+              <li><a href='films.php' target='_self'>Фильмы</a></li>
+              <li><a href='galleries.php' target='_self'>Галереи</a>
+                <?php $sitemap_url[] = DOMEN."galleries.php";
+                $post_title = get_post_title(4,1); // echo $post_title;
+                if($post_title) {echo "<ol>$post_title</ol>";} ?>
+              </li>
+            <?php $sitemap_url[] = DOMEN."articles.php"; ?>
+              <li><a href='articles.php' target='_self'>Познавательные статьи и заметки</a></li>
+            <?php echo "</ol>";
+          endif;?>
+            </li>
+        <?php endforeach;
+      endif; ?>
+        <!-- Вывод в цикле всех страниц (конец) --><br>
+        <li><a href="courses.php">Курсы</a></li><br>
+        <li><a href="date.php?date=<?=date('Y');?>">Архив новостей</a></li><br>
+        <li><a href="all_links.php">Все ссылки</a></li>
+        <li><a href="<?=D.S;?>l1">Ссылка</a></li>
+        <li><a href="short_link.php?id=1">Короткая ссылка</a></li>
+        <li><a href="partner_link.php?id=39">Партнёрская ссылка</a></li>
+        <li><a href="internet_link.php?id=61">Ссылка на закачку с интернета</a></li>
+        <li><a href="download_link.php?id=61">Ссылка на закачку с ftp-сервера</a></li>
+        <li><a href="banner_link.php?id=1">Баннерная ссылка</a></li><br>
+        <li><a href="search.php">Поиск по сайту</a></li><br>
+        <li><a href="registration.php">Регистрация</a></li>
+        <li><a href="activation.php">Активация</a></li><br>
+      <?php if (isset($user['login'])): ?>
+          <li><a href="user_page.php?id=<?=$user['id'];?>">Страница пользователя</a></li>
+          <li><a href="all_users.php">Все пользователи</a></li>
+          <li><a href="exit.php">Выход пользователя</a></li>
+          <li><a href="delete_message.php">Удалить сообщение</a></li>
+      <?php endif;?>
+      <?php if (!isset($user['login'])): ?>
+          <li><a href="send_login.php">Забыли логин?</a></li>
+          <li><a href="send_password.php">Забыли пароль?</a></li>
+      <?php endif;?><br>
+        <li><a href="sitemap.php">Карта сайта</a></li><br>
+        <li><a href="<?=D.S;?>l271" target="_blank" title="Файловый HTTP-сервер Артура Абзалова"><em class="gray1">Файловый HTTP-сервер</em></a></li>
+        <li><a href="<?=D.S;?>l272" target="_blank" title="Файловый FTP-сервер Артура Абзалова"><em class="gray">Файловый FTP-сервер</em></a></li>
+    </ol><br>
+  <?php if($user['login'] == 'rolar'):?>
+      <p>Ниже представлена карта сайта в формате xml</p><br>
+      <form action="" method="post" name="xmlsitemap_form" target="_self">
+      <textarea cols="93" id="xmlsitemap" name="xmlsitemap" readonly="readonly" rows="15" title="Карта сайта в формате xml"><?php
+        $sitemap_url[] = DOMEN."date.php?date=".date('Y');
+        $sitemap_url[] = DOMEN."courses.php";
+        $sitemap_url[] = DOMEN."all_links.php";
+        // $sitemap_url[] = DOMEN."link.php?id=1";
+        // $sitemap_url[] = DOMEN."short_link.php?id=1";
+        // $sitemap_url[] = DOMEN."partner_link.php?id=39";
+        // $sitemap_url[] = DOMEN."internet_link.php?id=61";
+        // $sitemap_url[] = DOMEN."download_link.php?id=61";
+        // $sitemap_url[] = DOMEN."banner_link.php?id=1";
+        $sitemap_url[] = DOMEN."search.php";
+        $sitemap_url[] = DOMEN."registration.php";
+        $sitemap_url[] = DOMEN."activation.php";
+
+        if (isset($user['id'])) {$user_id = $user['id'];} else {$user_id = 1;}
+        $sitemap_url[] = DOMEN."user_page.php?id=".$user_id;
+        $sitemap_url[] = DOMEN."all_users.php";
+        // $sitemap_url[] = DOMEN."exit.php";
+        // $sitemap_url[] = DOMEN."delete_message.php";
+
+        $sitemap_url[] = DOMEN."send_login.php";
+        $sitemap_url[] = DOMEN."send_password.php";
+
+        $sitemap_url[] = DOMEN."sitemap.php";
+
+                $lastmod_date = date("Y-m-d").'T'.date("H:i:s+06:00"); // "2014-05-20T00:00:00+06:00";
+                $changefreq = "monthly"; //always hourly daily weekly monthly yearly never
+                $priority = "1.0";
+
+                $xmlsitemap = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+        <urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">";
+                foreach ($sitemap_url as $item) {
+                  $xmlsitemap = $xmlsitemap."
+           <url>
+              <loc>$item</loc>
+              <lastmod>$lastmod_date</lastmod>
+              <changefreq>$changefreq</changefreq>
+              <priority>$priority</priority>
+           </url>";
+                }
+                $xmlsitemap = $xmlsitemap."\r\n</urlset>";
+                echo $xmlsitemap;
+
+                       </textarea><br><?php // print_array($sitemap_url);?>
+                      <center><input class="button" id="save_xml-sitemap" name="save_xml-sitemap" type="submit" value="Сохранить XML-карту сайта"></center></form>
+
+                      <?php
+                      // сохранения xml-карты сайта
+                          if($_POST['save_xml-sitemap']){
+                            if ($_POST['xmlsitemap'] != '') {
+                              $filename = "sitemap.xml";
+                              file_put_contents($filename, $xmlsitemap); // Пишем содержимое обратно в файл
+                            }
+                          }
+                        endif; ?><br><br>
+
+
+
+<div class="social_buttons" style="width: 105px;">
+<!-- Кнопка "Мне нравится" Facebook (начало) -->
+<div class="fb-like" data-href="http://rolar.ru" data-width="450" data-layout="button_count" data-share="true" data-show-faces="true" data-send="false"></div>
+<!-- Кнопка "Мне нравится" Facebook (конец) -->
+</div>
+
+<div class="social_buttons" style="width: 65px;">
+<!-- Кнопка Google +1 с асинхронной загрузкой (начало) -->
+<!-- Поместите этот тег туда, где должна отображаться кнопка +1. -->
+<div class="g-plusone" data-size="medium"></div>
+<!-- Поместите этот тег за последним тегом виджета кнопка +1. -->
+<script type="text/javascript">
+  window.___gcfg = {lang: 'ru'};
+
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+<!-- Кнопка Google +1 с асинхронной загрузкой (конец) -->
+</div>
+
+<div class="social_buttons" style="width: 120px;">
+<!-- Кнопка Нравится от Майл.ру (начало) -->
+<a target="_blank" class="mrc__plugin_uber_like_button" href="http://connect.mail.ru/share" data-mrc-config="{'cm' : '1', 'sz' : '20', 'st' : '2', 'tp' : 'mm'}">Нравится</a>
+<script src="http://cdn.connect.mail.ru/js/loader.js" type="text/javascript" charset="UTF-8"></script>
+<!-- Кнопка Нравится от Майл.ру (конец) -->
+</div>
+
+<div class="social_buttons">
+<!-- Кнопка Класс от Одноклассники.ру (начало) -->
+<div id="ok_shareWidget"></div>
+<script>
+!function (d, id, did, st) {
+  var js = d.createElement("script");
+  js.src = "http://connect.ok.ru/connect.js";
+  js.onload = js.onreadystatechange = function () {
+  if (!this.readyState || this.readyState == "loaded" || this.readyState == "complete") {
+    if (!this.executed) {
+      this.executed = true;
+      setTimeout(function () {
+        OK.CONNECT.insertShareWidget(id,did,st);
+      }, 0);
+    }
+  }};
+  d.documentElement.appendChild(js);
+}(document,"ok_shareWidget","http://rolar.ru","{width:145,height:30,st:'rounded',sz:20,ck:1}");
+</script>
+<!-- Кнопка Класс от Одноклассники.ру (конец) -->
+</div>
+<br><br>
+
+<p>Расскажите о нас своим друзьям:</p>
+<div class="social_buttons">
+<!-- Кнопка публикации ссылок Вконтакте (начало) -->
+<!-- Put this script tag to the place, where the Share button will be -->
+<div id="vkshare">
+<span class="wk_comment"></span>
+<script type="text/javascript"><!--
+document.write(VK.Share.button(false,{type: "round_nocount", text: "Поделиться"}));
+--></script></div>
+<!-- Кнопка публикации ссылок Вконтакте (конец) -->
+</div>
+
+<div class="social_buttons" style="width: 88px;">
+<!-- Кнопка "Поделиться" Facebook (начало) -->
+<div class="fb-send" data-href="http://rolar.ru"></div>
+<!-- Кнопка "Поделиться" Facebook (конец) -->
+</div>
+
+<div class="social_buttons" style="width: 100px;">
+<!-- Кнопка Твитнуть от Twittera (начало) -->
+<a href="https://twitter.com/share" class="twitter-share-button" data-via="rolaraav" data-lang="ru">Твитнуть</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<!-- Кнопка Твитнуть от Twittera (конец) -->
+</div>
+
+<div class="social_buttons" style="width: 125px;">
+<!-- Кнопка Google Поделиться с асинхронной загрузкой (начало) -->
+<!-- Поместите этот тег туда, где должна отображаться кнопка "Поделиться". -->
+<div class="g-plus" data-action="share" data-annotation="bubble"></div>
+<!-- Поместите этот тег за последним тегом виджета Поделиться. -->
+<script type="text/javascript">
+  window.___gcfg = {lang: 'ru'};
+
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+<!-- Кнопка Google Поделиться с асинхронной загрузкой (конец) -->
+</div>
+
+<div class="social_buttons" style="width: 125px;">
+<!-- Кнопка Я.Ру (начало) -->
+<a counter="yes" type="button" size="large" share_text="Поделиться" name="ya-share"></a>
+<script charset="utf-8" type="text/javascript">if (window.Ya && window.Ya.Share) {Ya.Share.update();} else {(function(){if(!window.Ya) { window.Ya = {} };Ya.STATIC_BASE = 'http:\/\/yandex.st\/wow\/2.21.3\/static';Ya.START_BASE = 'http:\/\/my.ya.ru\/';var shareScript = document.createElement("script");shareScript.type = "text/javascript";shareScript.async = "true";shareScript.charset = "utf-8";shareScript.src = Ya.STATIC_BASE + "/js/api/Share.js";(document.getElementsByTagName("head")[0] || document.body).appendChild(shareScript);})();}</script>
+<!-- Кнопка Я.Ру (конец) -->
+</div>
+<br><br>
+
+<!-- Блок социальных кнопок Поделиться от Яндекса (начало) -->
+<script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>
+<div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="button" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,moimir,gplus,yaru,lj"></div>
+<!-- Блок социальных кнопок Поделиться от Яндекса (конец) -->
+
+<br><br>
+
+
+  <form action="http://smartresponder.ru/subscribe.html" id="SR_form" method="post" name="SR_form" onsubmit="return SR_submit(this)" target="_blank">
+  <fieldset id="smartresponder_fieldset">
+  <input type="hidden" name="version" value="1">
+  <input type="hidden" name="tid" value="548628">
+  <input type="hidden" name="uid" value="141306">
+  <input type="hidden" name="lang" value="ru">
+  <input type="hidden" name="did[]" value="365124">
+
+  <strong>Ваше имя:&nbsp;<span color="#ff0000">*</span></strong><br>
+  <input id="user_name_first" name="field_name_first" size="20" title="Например: Александр" type="text" value="Введите Ваше имя"><br>
+
+  <strong>Ваш e-mail:&nbsp;<span color="#ff0000">*</span></strong><br>
+  <input id="user_email" name="field_email" size="20" title="Например: aleks@mail.ru" type="text" value="Введите Ваш e-mail"><br>
+
+  <input class="button" id="SR_submitButton" name="SR_submitButton" type="submit" value="Подписаться">
+  <p class="remark"><span color="#ff0000">*</span> Звёздочкой помечены обязательные поля для заполнения</p>
+  </fieldset>
+  </form>
+
+
+
+
+
+<select id="changeShow" name="num" title="Выберите количество записей на странице">
+<option disabled="disabled" value="7">Выберите количество записей</option>
+<option value="7" <?php if ($quantity_posts == 7) {echo $sel;} ?>>7 записей на странице</option>
+<option value="15" <?php if ($quantity_posts == 15) {echo $sel;} ?>>15 записей на странице</option>
+<option value="30" <?php if ($quantity_posts == 30) {echo $sel;} ?>>30 записей на странице</option>
+<option value="50" <?php if ($quantity_posts == 50) {echo $sel;} ?>>50 записей на странице</option>
+<option value="100" <?php if ($quantity_posts == 100) {echo $sel;} ?>>100 записей на странице</option>
+<option value="999" <?php if ($quantity_posts > 100) {echo $sel;} ?>>все записи на странице</option>
+</select>
+
+    <div class="cpinput"><label>Выберите тип материала:<br>
+        <select class="form-select" id="type" name="type" size="1">
+          <option value="0" selected="selected">Новость</option>
+          <option value="1">Партнёрский продукт</option>
+          <option value="2">Закачка</option>
+          <option value="3">Товар</option>
+          <option value="4">Галерея</option>
+          <option value="5">Альбом</option>
+        </select>
+      </label></div>
+
+
+    <div class="cpinput"><label>Введите название новости<font color="#ff0000">*</font>:<br><input id="title" maxlength="255" name="title" size="100" type="text" value="<?php echo $_SESSION['create']['title'];?>"></label></div>
+    <div class="cpinput"><label>Введите краткое описание новости (для SEO)<font color="#ff0000">*</font>:<br><input id="description" maxlength="255" name="description" size="100" type="text" value="<?php echo $_SESSION['create']['description'];?>"></label></div>
+    <div class="cpinput"><label>Введите ключевые слова (для SEO)<font color="#ff0000">*</font>:<br><input id="keywords" maxlength="255" name="keywords" size="100" type="text" value="<?php echo $_SESSION['create']['keywords'];?>"></label></div>
+    <div class="cpinput"><label>Введите имя автора новости<font color="#ff0000">*</font>:<br><input id="author" maxlength="100" name="author" size="100" type="text" value="<?php if (empty($_SESSION['create']['author'])) {echo $login;} else {echo $_SESSION['create']['author'];}?>"></label></div>
+
+    <div class="cpinput"><label>Введите дату и время создания новости (ГГГГ-ММ-ДД чч:мм:сс)<font color="#ff0000">*</font>:<br><input id="date" maxlength="19" name="date" size="15" type="text" value="<?php if (empty($_SESSION['create']['date'])) {$date = date("Y-m-d H:i:s"); echo $date;} else {echo $_SESSION['create']['date'];}?>"></label></div>
+
+    <div class="cpinput"><label>Загрузка картинки:</label><br>
+      <div class="file_upload">
+        <div class="file_upload_label">Файл не выбран</div>
+        <button class="file_upload_button" type="button">Загрузить файл</button>
+        <input id="file_upload_input" name="file" type="file">
+      </div>
+      <div class="file_upload_result"></div>
+      <div class="file_upload_image"></div>
+      <input type="hidden" name="MAX_FILE_SIZE" value="<?=MAX_FILE_SIZE;?>">
+    </div>
+    <div class="cpinput"><label>Имя загруженной картинки (например, <span class="monospace_url">rolar.jpg</span>)<font color="#ff0000">*</font>:<br><input id="file_upload_name" maxlength="255" name="image" size="100" type="text" value="<?php echo $_SESSION['create']['image'];?>"></label></div>
+    <div class="cpinput"><label>Путь к картинке (например, <span class="monospace_url">images/data/</span>)<font color="#ff0000">*</font>:<br><input id="image_path" maxlength="255" name="image_path" size="100" type="text" value="<?php if (empty($_SESSION['create']['image_path'])) {echo 'images/data/';} else {echo $_SESSION['create']['image_path'];}?>"></label></div>
+    <div class="cpinput"><div class="upload"></div>
+      <div id="upload_result"></div>
+      <div id="upload_image"></div></div>
+    <div class="cpinput"><label>Введите названия скриншотов новости через запятую (если есть):<br><textarea id="screenshots" name="screenshots" cols="102" rows="6"><?php echo $_SESSION['create']['screenshots'];?></textarea></label></div>
+    <div class="cpinput"><label>Введите размер прикреплённых файлов (в байтах, если есть):<br><input id="size" maxlength="15" name="size" size="15" type="text" value="<?php if (empty($_SESSION['create']['size'])) {echo "0";} else {echo $_SESSION['create']['size'];}?>"></label></div>
+
+    <div class="cpinput"><label>Введите адрес реферальной (партнёрской) ссылки (если есть):<br><input id="partner_link" maxlength="255" name="partner_link" size="100" type="text" value="<?php echo $_SESSION['create']['partner_link'];?>"></label></div>
+    <div class="cpinput"><label>Введите адрес ссылки для скачивания с ftp-сервера (если есть):<br><input id="download_link" maxlength="255" name="download_link" size="100" type="text" value="<?php echo $_SESSION['create']['download_link'];?>"></label></div>
+    <div class="cpinput"><label>Введите адрес ссылки для скачивания с интернета (если есть):<br><input id="internet_link" maxlength="255" name="internet_link" size="100" type="text" value="<?php echo $_SESSION['create']['internet_link'];?>"></label></div>
+    <div class="cpinput"><label>Введите адрес ссылки для оформления заказа (если есть):<br><input id="buy_link" maxlength="255" name="buy_link" size="100" type="text" value="<?php echo $_SESSION['create']['buy_link'];?>"></label></div>
+    <div class="cpinput"><label>Введите цену (если есть):<br><input id="price" maxlength="7" name="price" size="15" type="text" value="<?php if (empty($_SESSION['create']['price'])) {echo "0";} else {echo $_SESSION['create']['price'];}?>"></label></div>
+    <div class="cpinput"><label>Введите краткое описание новости с html-тэгами<font color="#ff0000">*</font>:<br><textarea id="introduction" name="introduction" cols="102" rows="6"><?php echo $_SESSION['create']['introduction'];?></textarea></label></div>
+    <!-- <script type="text/javascript">CKEDITOR.replace('introduction');</script> -->
+    <div class="cpinput"><label>Введите полный текст новости с html-тэгами<font color="#ff0000">*</font>:<br><textarea id="text" name="text" cols="102" rows="10"><?php echo $_SESSION['create']['text'];?></textarea></label></div>
+    <!-- <script type="text/javascript">CKEDITOR.replace('text');</script> -->
+
+
+
+
+
+
+
+
+
+        <div class="comments_wrapper">
+        <div class="comments">Комментарии:</div>';
+          if ($item['comments_text']) {
+            echo $item['comments_text']; // если есть комментарии то выводим их
+          }
+          // $item['comments_settings'] - пригодится для проверки отправителя комментариев
+          ?>
+            <div class="comments">Оставить комментарий</div>
+
+            <form action="" method="post" name="form_com" target="_self">
+                <fieldset class="comment_add">
+                  <?php
+                  // если пользователь зашел на сайт, то поля ввода имени, электронной почты и сайта не выводим
+                  if (isset($user['login'])): ?>
+                      <input id="comment_author_name" name="comment_author" type="hidden" value="<?=$user['login'];?>">
+                      <input id="comment_author_email" name="author_email" type="hidden" value="<?=$user['email'];?>">
+                      <input id="comment_author_site" name="author_site" type="hidden" value="<?=$user['site'];?>">
+                  <?php
+                  else: //то выводим поля ввода имени, емайла и сайта ?>
+                      <div class="commentadd"><label>Ваше имя<font color="#ff0000">*</font>:&nbsp;<input class="comment_author_name_field" maxlength="30" name="comment_author" size="40" title="Введите Ваше имя" type="text" value="Введите Ваше имя"></label></div>
+                      <div class="commentadd"><label>Ваш e-mail<font color="#ff0000">*</font>:&nbsp;<input class="comment_author_email_field" maxlength="30" name="author_email" size="40" title="Введите Ваш e-mail" type="text" value="Введите Ваш e-mail"></label></div>
+                      <p class="remark">Ваш e-mail необходим только для связи с Вами и не публикуется на сайте.</p>
+                      <div class="commentadd"><label>Ваш сайт:&nbsp;<input class="comment_author_site_field" maxlength="30" name="author_site" size="40" title="Введите адрес Вашего сайта (если есть)" type="text" value="Введите адрес Вашего сайта (если есть)"></label></div>
+                  <?php
+                  endif;?>
+                    <div class="commentadd"><label>Ваш комментарий<font color="#ff0000">*</font>:<br>
+                            <textarea class="comment_text_field" maxlength="5000" name="comment_text" cols="75" rows="10" title="Введите Ваш комментарий">Введите Ваш комментарий</textarea></label></div>
+
+                    <div class="commentadd"><label>Введите сумму чисел с картинки<font color="#ff0000">*</font>:<br>
+                            <img id="sum" src="<? //$item["comments_settings"];?>" width="40" height="20">&nbsp;=&nbsp;
+                            <input id="checksum" maxlength="1" name="checksum" size="1" title="Введите сумму чисел с картинки" type="text"></label></div>
+
+                    <input id="id" name="id" type="hidden" value="<?=$item["id"];?>">
+                    <input id="randomimage" name="randomimage" type="hidden" value="<?=$item["randomimage"];?>">
+                    <div class="commentadd"><input class="button" id="submit_comment" name="submit_comment" type="submit" value="Отправить"></div>
+
+                    <p class="remark"><font color="#ff0000">*</font> Звёздочкой помечены обязательные поля для заполнения</p>
+                </fieldset></form>
+                          <?php
+                          if (isset($_POST['send_comment'])) {
+                            echo $_POST['send_comment'];
+                          }
+
+
+
+
+<!-- Форма предварительного запроса платежа WebMoney (начало)
+<form method="POST" action="<?=D.S.'bill/webmoney'; // Result URL ?>">
+    <input type="hidden" name="LMI_PREREQUEST" value="1">
+    <input type="hidden" name="LMI_PAYMENT_AMOUNT" value="1.0">
+    <input type="hidden" name="LMI_PAYMENT_NO" value="1">
+    <input type="hidden" name="LMI_PAYEE_PURSE" value="R222211112222">
+    <input type="hidden" name="LMI_MODE" value="1">
+    <input type="hidden" name="LMI_PAYER_WM" value="111122221111">
+    <input type="hidden" name="LMI_PAYER_PURSE" value="R111122221111">
+    <input type="hidden" name="FIELD_1" value="VALUE_1">
+    <input type="hidden" name="FIELD_2" value="VALUE_2">
+</form>
+Форма предварительного запроса платежа WebMoney (начало) -->
+
+<!-- Форма оповещения о платеже WebMoney (начало)
+<form method="POST" action="<?=D.S.'bill/webmoney'; // Result URL ?>">
+    <input type="hidden" name="LMI_PAYMENT_AMOUNT" value="1.0">
+    <input type="hidden" name="LMI_PAYMENT_NO" value="1">
+    <input type="hidden" name="LMI_PAYEE_PURSE" value="R397656178472">
+    <input type="hidden" name="LMI_MODE" value="1">
+    <input type="hidden" name="LMI_SYS_INVS_NO" value="281">
+    <input type="hidden" name="LMI_SYS_TRANS_NO" value="558">
+    <input type="hidden" name="LMI_PAYER_PURSE" value="R397656178472">
+    <input type="hidden" name="LMI_PAYER_WM" value="809399319852">
+    <input type="hidden" name="LMI_SYS_TRANS_DATE" value="20020314 14:01:14">
+    <input type="hidden" name="LMI_HASH" value="114128B8AEFD8CAA76D3CF75B9AEBC17">
+    <input type="hidden" name="FIELD_1" value="VALUE_1">
+    <input type="hidden" name="FIELD_2" value="VALUE_2">
+</form>
+Форма оповещения о платеже WebMoney (конец) -->

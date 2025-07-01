@@ -1,0 +1,22 @@
+fieldset.submit {
+    float:none; 
+    width:auto;
+    border:0 none;
+    padding-left:255;
+    background-color: transparent;
+    background-image: none;
+}
+
+.wrap2 h3 {
+  font:  normal 11px Verdana, Arial, Helvetica, sans-serif;
+  height:1em;
+  padding:2px 18px 4px 6px;
+  clear: right;
+  color:#99ACCA ;
+  background:transparent url(../images/theme/bullet1.gif) right center no-repeat;
+  margin:0;
+  position:absolute;
+  right:50px;
+  top:-9px;
+  border:0 none;
+}
